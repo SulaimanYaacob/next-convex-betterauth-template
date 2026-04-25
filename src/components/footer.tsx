@@ -7,9 +7,9 @@ export function Footer() {
     <footer className="w-full border-t border-border text-sm text-muted-foreground">
       <div className="mx-auto w-full max-w-6xl px-2 md:px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
         <p className="text-center sm:text-left">
-          © 2025 Podalls —
+          © 2025 John Doe —
           <Link
-            href="https://github.com/podalls97/next-convex-betterauth-template/blob/main/LICENSE"
+            href="https://github.com/sulaimanyaacob/next-convex-betterauth-template/blob/main/LICENSE"
             target="_blank"
             rel="noopener noreferrer"
             className="ml-1 hover:text-foreground transition-colors underline-offset-4 hover:underline"
@@ -18,7 +18,7 @@ export function Footer() {
           </Link>
         </p>
         <Link
-          href="https://github.com/podalls97/next-convex-betterauth-template"
+          href="https://github.com/sulaimanyaacob/next-convex-betterauth-template"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-foreground transition-colors underline-offset-4 hover:underline"
