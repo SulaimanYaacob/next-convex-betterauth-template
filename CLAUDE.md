@@ -268,6 +268,271 @@ pnpm convex env set BETTER_AUTH_SECRET your-prod-secret --prod
 - **Proxy pattern** - `src/proxy.ts` replaces `middleware.ts` (deprecated convention)
 - **React 19** - Using React 19.2.0 with async server components
 
+## Best Practices
+
+### Performance
+
+**React Compiler is active** (`reactCompiler: true` in `next.config.ts`) — do NOT add `useMemo`, `useCallback`, or `React.memo` manually. The compiler handles memoization automatically.
+
+**Images** — always use `next/image`. Required props every time:
+```tsx
+import Image from "next/image";
+
+// Static asset (known dimensions)
+<Image src="/hero.png" alt="Hero" width={1200} height={630} priority />
+
+// Responsive (unknown render size) — always include sizes
+<Image
+  src={user.image}
+  alt={user.name}
+  fill
+  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+  className="object-cover"
+/>
+
+// Above-the-fold images: add priority prop
+// User-generated images: add placeholder="blur" blurDataURL="data:image/..."
+```
+
+**Dynamic imports** — lazy-load heavy client components (dialogs, charts, rich text editors):
+```tsx
+import dynamic from "next/dynamic";
+const RichEditor = dynamic(() => import("@/components/rich-editor"), {
+  loading: () => <div className="h-40 animate-pulse bg-muted rounded" />,
+  ssr: false,
+});
+```
+
+**Fonts** — specify weights and `display: "swap"`:
+```tsx
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+```
+
+**Icons** — never import entire libraries. Always import individual icons:
+```tsx
+// ✅ good
+import { Search } from "lucide-react";
+// ❌ bad
+import * as Icons from "lucide-react";
+```
+
+---
+
+### SEO
+
+**Every public (non-auth) page** must export `metadata` or `generateMetadata`. Use `metadataBase` + title templates in the root layout:
+
+```tsx
+// src/app/layout.tsx
+export const metadata: Metadata = {
+  metadataBase: new URL(process.env.SITE_URL ?? "http://localhost:3000"),
+  title: { default: "App Name", template: "%s | App Name" },
+  description: "Your app description",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: "App Name",
+  },
+  twitter: { card: "summary_large_image" },
+};
+
+// src/app/(unauth)/sign-in/page.tsx
+export const metadata: Metadata = {
+  title: "Sign In",  // renders as "Sign In | App Name"
+  description: "Sign in to your account",
+};
+
+// Dynamic pages
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  return {
+    title: params.slug,
+    alternates: { canonical: `/posts/${params.slug}` },
+  };
+}
+```
+
+**Add these files for public sites:**
+
+```ts
+// src/app/sitemap.ts
+import { MetadataRoute } from "next";
+export default function sitemap(): MetadataRoute.Sitemap {
+  return [
+    { url: `${process.env.SITE_URL}`, lastModified: new Date() },
+    { url: `${process.env.SITE_URL}/sign-in`, lastModified: new Date() },
+  ];
+}
+
+// src/app/robots.ts
+import { MetadataRoute } from "next";
+export default function robots(): MetadataRoute.Robots {
+  return {
+    rules: [
+      { userAgent: "*", allow: "/", disallow: ["/dashboard/", "/settings/"] },
+    ],
+    sitemap: `${process.env.SITE_URL}/sitemap.xml`,
+  };
+}
+```
+
+---
+
+### Responsive Design
+
+**Mobile-first always.** Base styles = mobile. Layer up:
+
+| Prefix | Breakpoint |
+|--------|-----------|
+| (none) | 0px — mobile |
+| `sm:` | 640px |
+| `md:` | 768px |
+| `lg:` | 1024px |
+| `xl:` | 1280px |
+| `2xl:` | 1536px |
+
+**Standard page container:**
+```tsx
+<div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+```
+
+**Layout rules:**
+- CSS Grid for 2D layouts: `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6`
+- Flexbox for 1D: `flex flex-col sm:flex-row items-center gap-4`
+- Touch targets: `min-h-[44px] min-w-[44px]` on all interactive elements (WCAG 2.5.5)
+- Use `@container` for component-level breakpoints (already supported in existing UI components)
+
+**Typography scale:**
+```tsx
+// Headings
+<h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">
+<h2 className="text-xl sm:text-2xl font-semibold">
+// Body
+<p className="text-sm sm:text-base leading-relaxed text-muted-foreground">
+```
+
+---
+
+### Loading & Error States
+
+**Every route with async Convex data needs a `loading.tsx`:**
+```tsx
+// src/app/(auth)/dashboard/loading.tsx
+export default function Loading() {
+  return (
+    <div className="space-y-4 p-6">
+      {Array.from({ length: 3 }).map((_, i) => (
+        <div key={i} className="h-16 animate-pulse bg-muted rounded-lg" />
+      ))}
+    </div>
+  );
+}
+```
+
+**Error boundary for auth routes:**
+```tsx
+// src/app/(auth)/error.tsx
+"use client";
+export default function Error({ error, reset }: { error: Error; reset: () => void }) {
+  return (
+    <div className="flex flex-col items-center gap-4 p-8">
+      <p className="text-destructive">{error.message}</p>
+      <button onClick={reset} className="underline">Try again</button>
+    </div>
+  );
+}
+```
+
+**Convex query loading pattern:**
+```tsx
+const data = useQuery(api.todos.list);
+if (data === undefined) return <LoadingSkeleton />; // undefined = loading in Convex
+if (data.length === 0) return <EmptyState />;       // always handle empty
+```
+
+---
+
+### UX Patterns
+
+**Mutations:** always show toast feedback (Sonner is installed):
+```tsx
+import { toast } from "sonner";
+const createTodo = useMutation(api.todos.create);
+
+async function handleSubmit(values: FormValues) {
+  try {
+    await createTodo(values);
+    toast.success("Created successfully");
+  } catch {
+    toast.error("Something went wrong");
+  }
+}
+```
+
+**Optimistic updates** for instant UI response:
+```tsx
+const deleteTodo = useMutation(api.todos.delete).withOptimisticUpdate(
+  (localStore, args) => {
+    const todos = localStore.getQuery(api.todos.list);
+    if (todos) {
+      localStore.setQuery(api.todos.list, todos.filter(t => t._id !== args.id));
+    }
+  }
+);
+```
+
+**Forms:** use zod + react-hook-form via the existing `src/components/ui/form.tsx` infrastructure. Always validate before submit, never on every keystroke.
+
+**Empty states:** every list component must render a meaningful empty state — never a blank area.
+
+---
+
+### Accessibility
+
+- Use semantic HTML: `<nav>`, `<main>`, `<header>`, `<aside>`, `<section>`, `<article>`
+- Icon-only buttons need `aria-label`:
+  ```tsx
+  <button aria-label="Close dialog"><X className="size-4" /></button>
+  ```
+- Screen-reader text for supplemental labels:
+  ```tsx
+  <span className="sr-only">Notifications</span>
+  ```
+- Never remove focus ring. Use `focus-visible:ring-2 focus-visible:ring-ring` (Tailwind's ring utilities)
+- Radix UI primitives handle keyboard navigation — don't override `onKeyDown` unless adding new behavior
+- Color must not be the only indicator of state — pair with icon, text, or pattern
+
+---
+
+### Security Headers
+
+Add to `next.config.ts` for all deployments:
+
+```ts
+const nextConfig: NextConfig = {
+  // ...existing config...
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          { key: "X-Frame-Options", value: "DENY" },
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+        ],
+      },
+    ];
+  },
+};
+```
+
+---
+
 <!-- convex-ai-start -->
 This project uses [Convex](https://convex.dev) as its backend.
 

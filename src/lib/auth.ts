@@ -63,16 +63,16 @@ const createOptions = (ctx: GenericCtx) =>
       },
     },
     socialProviders: {
-      // github: {
-      //   clientId: process.env.GITHUB_CLIENT_ID as string,
-      //   clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
-      // },
-      // google: {
-      //   clientId: process.env.GOOGLE_CLIENT_ID as string,
-      //   clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
-      //   accessType: "offline",
-      //   prompt: "select_account consent",
-      // },
+      github: {
+        clientId: process.env.GITHUB_CLIENT_ID as string,
+        clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
+      },
+      google: {
+        clientId: process.env.GOOGLE_CLIENT_ID as string,
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+        accessType: "offline",
+        prompt: "select_account consent",
+      },
     },
     user: {
       // This field is available in the `onCreateUser` hook from the component,

@@ -1,16 +1,14 @@
 # Next.js + Convex + Better Auth Template
 
-[![Next.js](https://img.shields.io/badge/Next.js-16.0.7-black?style=flat&logo=next.js)](https://nextjs.org/)
-[![React](https://img.shields.io/badge/React-19.2.1-blue?style=flat&logo=react)](https://react.dev/)
-[![Convex](https://img.shields.io/badge/Convex-Realtime-orange?style=flat&logo=convex)](https://convex.dev/)
-[![Better Auth](https://img.shields.io/badge/Better%20Auth-Latest-green?style=flat)](https://better-auth.com/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue?style=flat&logo=typescript)](https://www.typescriptlang.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-16.2.4-black?style=flat&logo=next.js)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19.2.5-blue?style=flat&logo=react)](https://react.dev/)
+[![Convex](https://img.shields.io/badge/Convex-1.36-orange?style=flat&logo=convex)](https://convex.dev/)
+[![Better Auth](https://img.shields.io/badge/Better%20Auth-1.6-green?style=flat)](https://better-auth.com/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-6.0-blue?style=flat&logo=typescript)](https://www.typescriptlang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/podalls97/next-convex-betterauth-template?utm_source=oss&utm_medium=github&utm_campaign=podalls97%2Fnext-convex-betterauth-template&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews)
 
-A **production-ready**, full-stack authentication template built with Next.js 16, Convex, and Better Auth. This template provides a complete authentication system with multiple auth methods, real-time database, comprehensive documentation, and API reference.
-
-> **✨ New!** Built-in [Documentation](/documentation) and [API Reference](/api-reference) pages to help you get started quickly!
+A **production-ready**, full-stack authentication template built with Next.js 16, Convex, and Better Auth. This template provides a complete authentication system with multiple auth methods, real-time database, and a strong foundation for building modern web applications.
 
 ## 🚀 Features
 
@@ -35,18 +33,15 @@ A **production-ready**, full-stack authentication template built with Next.js 16
 
 ### Developer Experience
 
-- ✅ **Comprehensive Documentation** - Built-in `/documentation` page with setup guides
-- ✅ **API Reference** - Full API documentation at `/api-reference` with code examples
-- ✅ **Claude AI Ready** - Includes `CLAUDE.md` for AI coding assistants
-- ✅ **TypeScript** - Full type safety throughout the stack
-- ✅ **Tailwind CSS v4** - Modern styling with utility classes
+- ✅ **Claude AI Ready** - Includes `CLAUDE.md` with architecture docs, patterns, and best practices
+- ✅ **TypeScript 6.0** - Full type safety throughout the stack
+- ✅ **React Compiler** - Automatic memoization, no manual `useMemo`/`useCallback` needed
+- ✅ **Tailwind CSS v4** - Modern styling with utility classes, dark mode, container queries
 - ✅ **Radix UI** - Accessible component primitives
 
 ## 📖 Quick Links
 
-- 📚 **[Documentation](/documentation)** - Complete setup guide, architecture overview, and deployment instructions
-- 🔧 **[API Reference](/api-reference)** - Comprehensive API documentation with copy-paste examples
-- 🤖 **[CLAUDE.md](CLAUDE.md)** - Technical documentation for AI coding assistants
+- 🤖 **[CLAUDE.md](CLAUDE.md)** - Technical documentation for AI coding assistants (architecture, best practices, patterns)
 - 💬 **[GitHub Issues](https://github.com/podalls97/next-convex-betterauth-template/issues)** - Report bugs or request features
 - ⭐ **[Star on GitHub](https://github.com/podalls97/next-convex-betterauth-template)** - Show your support!
 
@@ -120,7 +115,7 @@ pnpm convex env set GITHUB_CLIENT_ID your-github-client-id --prod
 pnpm convex env set GITHUB_CLIENT_SECRET your-github-client-secret --prod
 ```
 
-### 6. Required API Keys
+### 5. Required API Keys
 
 You'll need to set up the following services:
 
@@ -179,7 +174,7 @@ You'll need to set up the following services:
 5. Copy `SLACK_CLIENT_ID` and `SLACK_CLIENT_SECRET`
 6. Update `convex/auth.ts` and `src/lib/auth-client.ts` to include Slack configuration
 
-### 5. Start Development
+### 6. Start Development
 
 #### Option 1: Start Everything (Recommended)
 
@@ -221,9 +216,7 @@ src/
 ├── app/
 │   ├── (auth)/              # Protected routes (requires authentication)
 │   │   ├── dashboard/       # Main user dashboard
-│   │   ├── settings/        # User settings (2FA, profile)
-│   │   ├── documentation/   # 📚 Built-in documentation page
-│   │   └── api-reference/   # 🔧 Built-in API reference
+│   │   └── settings/        # User settings (2FA, profile)
 │   ├── (unauth)/            # Public routes
 │   │   ├── sign-in/         # Sign in page
 │   │   ├── sign-up/         # Registration page
@@ -231,11 +224,14 @@ src/
 │   │   └── reset-password/  # Password reset
 │   └── api/auth/[...all]/   # Next.js API route (delegates to Convex)
 ├── components/
-│   ├── client/              # Client components
-│   └── server/              # Server components
+│   ├── ui/                  # Radix UI + shadcn component primitives
+│   ├── client.tsx           # Client-side components (sign out, etc.)
+│   ├── server.tsx           # Server components (AppContainer, AppHeader, UserProfile)
+│   └── footer.tsx
 ├── lib/
 │   ├── auth.ts              # Better Auth server configuration
-│   └── auth-client.ts       # Better Auth client hooks
+│   ├── auth-client.ts       # Better Auth client hooks
+│   └── utils.ts             # cn() and shared utilities
 └── proxy.ts                 # Route protection (Next.js 16 proxy pattern)
 
 convex/
@@ -306,21 +302,7 @@ pnpm convex deploy
 
 ## 🤖 For AI Agents & Developers
 
-If you're working with AI coding assistants or need to modify authentication providers:
-
-### Adding/Removing Auth Providers
-
-When adding or removing authentication providers (Google, GitHub, etc.):
-
-1. **Update Environment Variables**: Add or remove the corresponding `CLIENT_ID` and `CLIENT_SECRET` variables in both `.env.local` and Convex
-2. **Check Convex Configuration**: Review and update `convex/auth.config.ts` to include/exclude the provider
-3. **Update Mutations**: Ensure all related Convex mutations and functions are updated to handle the new/removed provider
-4. **Test Authentication Flow**: Verify the complete authentication flow works with the changes
-
-### Quick Provider Management
-
-- **To add a provider**: Configure the provider in `convex/auth.config.ts`, add environment variables, and update any related mutations
-- **To remove a provider**: Remove from auth config, clean up environment variables, and update mutations to handle the removal
+See **[CLAUDE.md](CLAUDE.md)** for full architecture docs, authentication flow, Convex patterns, and best practices (performance, SEO, responsive design, accessibility). It's kept up to date and is the single source of truth for AI coding assistants working in this repo.
 
 ## 🤝 Contributing
 
