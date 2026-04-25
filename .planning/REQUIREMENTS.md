@@ -1,4 +1,4 @@
-# Requirements: Zentro
+# Requirements: Gami
 
 **Defined:** 2026-04-25
 **Core Value:** Players want to show off their cosmetics while playing with others — the social display of earned/bought identity is why they stay.

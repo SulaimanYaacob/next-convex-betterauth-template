@@ -1,4 +1,4 @@
-# Features Research: Zentro
+# Features Research: Gami
 
 **Domain:** Browser-based casual gaming platform with cosmetics economy
 **Researched:** 2026-04-25
@@ -11,9 +11,9 @@
 ### Game Discovery & Navigation
 
 - **Category/genre browsing**: Tabs or filter chips for "Action", "Puzzle", "Multiplayer", etc. Every platform (Miniclip, Armor Games, Coolmath) has this. Without it, players can't find games — they leave immediately. — complexity: low
-- **Search bar in navigation**: Persistent global search. Zentro's wireframe already has this. Players who know a game name type it directly; no search = friction. — complexity: low
+- **Search bar in navigation**: Persistent global search. Gami's wireframe already has this. Players who know a game name type it directly; no search = friction. — complexity: low
 - **"Popular / Featured" spotlight**: A visually prominent section above the fold showing featured or trending games. Coolmath calls it "Featured," Armor Games shows "Featured Games" row, Miniclip has a hero carousel. Players use this for discovery when they don't know what they want. — complexity: low
-- **Solo vs. Multiplayer separation**: Distinct sections so players can self-select their session intent. Zentro's wireframe already makes this a design principle. Players in casual browse mode don't want to accidentally join a lobby; MP players want to find others immediately. — complexity: low
+- **Solo vs. Multiplayer separation**: Distinct sections so players can self-select their session intent. Gami's wireframe already makes this a design principle. Players in casual browse mode don't want to accidentally join a lobby; MP players want to find others immediately. — complexity: low
 - **Game thumbnail + play count/rating indicator**: Every game card must show a thumbnail, title, and some social proof signal (play count or star rating). Absence of this makes the library feel unvetted. — complexity: low
 - **"Play Now" single-click to start**: No interstitial forms, no account gates before game load. Authentication prompt should come after first game completes, not before. Coolmath is entirely ungated. Armor Games gates some features but not game launch. — complexity: low
 
@@ -26,16 +26,16 @@
 
 ### In-Game Shell
 
-- **Fullscreen / focused play mode**: Remove all platform chrome while playing. Zero-distraction canvas. ESC reveals pause overlay (Zentro already specifies this). Players on browser games are accustomed to this from Flash-era muscle memory. — complexity: medium
+- **Fullscreen / focused play mode**: Remove all platform chrome while playing. Zero-distraction canvas. ESC reveals pause overlay (Gami already specifies this). Players on browser games are accustomed to this from Flash-era muscle memory. — complexity: medium
 - **Pause overlay / ESC menu**: Options to resume, quit to lobby, adjust volume. Must not require page reload to exit a game. — complexity: low
 - **Volume / sound toggle**: Browser audio is context-sensitive; players open games in offices, libraries, etc. Missing mute = immediate tab close. — complexity: low
 - **Loading state for game assets**: Spinner or progress bar while game loads. Blank screen during load reads as "broken site." — complexity: low
 
 ### Multiplayer Infrastructure Signals
 
-- **Active player count or "X players online"**: Shows the platform is alive. Even Coolmath (largely solo) displays this. For Zentro's MP section this is critical — a lobby that looks empty won't be joined. — complexity: low
+- **Active player count or "X players online"**: Shows the platform is alive. Even Coolmath (largely solo) displays this. For Gami's MP section this is critical — a lobby that looks empty won't be joined. — complexity: low
 - **Lobby/matchmaking UI**: For multiplayer games, a visible lobby before match start. Shows who is waiting, how many are needed. — complexity: medium
-- **Player status indicators**: Online / in-game / idle. Zentro already scopes this for v1. Without it, multiplayer feels ghost-town even when players are present. — complexity: medium
+- **Player status indicators**: Online / in-game / idle. Gami already scopes this for v1. Without it, multiplayer feels ghost-town even when players are present. — complexity: medium
 
 ### Store & Economy Basics
 
@@ -52,7 +52,7 @@
 ### Cosmetics Visibility Loop
 
 - **Live cosmetic preview in store**: Not a static image — the cursor skin/trail animates on the store card or in a dedicated preview panel. Slither.io shows snake skin previews animated. Krunker.io shows weapon skins spinning. Static thumbnails convert at ~40% the rate of live previews. — why it's differentiating: most small browser platforms use static images; animated previews are the Fortnite/Roblox standard that casual players now expect from premium-feeling stores.
-- **Cosmetics visible in multiplayer to others**: Zentro's core loop depends on this. Cursor trails and skins must render for all players in a multiplayer session, not just locally. This is the social proof loop — players see a cool trail, want it, buy it. Krunker.io built its entire economy on this mechanic. — why it's differentiating: this requires architecture (broadcasting cosmetic equip state over real-time), which most small platforms skip.
+- **Cosmetics visible in multiplayer to others**: Gami's core loop depends on this. Cursor trails and skins must render for all players in a multiplayer session, not just locally. This is the social proof loop — players see a cool trail, want it, buy it. Krunker.io built its entire economy on this mechanic. — why it's differentiating: this requires architecture (broadcasting cosmetic equip state over real-time), which most small platforms skip.
 - **"Rare" / tiered rarity system**: Color-coded tiers (Common → Rare → Epic → Legendary). Fortnite codified this; Roblox, Krunker all use it. Players intrinsically assign prestige to rarer items without being told to. — why it's differentiating: without tiers, all cosmetics feel equivalent; tiering creates aspiration.
 - **New arrivals / limited-time cosmetics section in store**: Items marked "New" or "Limited" create urgency without countdown timers (which are a dark pattern). Armor Games has rotating featured items. — why it's differentiating: drives return visits and spend spikes on launch days.
 
@@ -71,25 +71,25 @@
 ### Onboarding
 
 - **Coins gifted on first login**: "Here are 100 coins to get started" makes new players immediately feel invested in the economy before they've earned anything. Reduces cold-start friction. — why it's differentiating: most browser platforms don't do this; the ones that do (Roblox's legacy free Robux, Krunker starting KR) see higher store page visit rates from new users.
-- **Tutorial trail / cosmetic equipped by default**: New players spawn with a default cursor trail so they immediately see what the system does. A plain cursor on first visit communicates nothing about what makes Zentro different. — why it's differentiating: first impressions of cosmetics determine whether players understand the core product.
+- **Tutorial trail / cosmetic equipped by default**: New players spawn with a default cursor trail so they immediately see what the system does. A plain cursor on first visit communicates nothing about what makes Gami different. — why it's differentiating: first impressions of cosmetics determine whether players understand the core product.
 
 ---
 
 ## Anti-Features (deliberately exclude)
 
-- **Pay-to-win mechanics** ⚠️: Any cosmetic or purchasable item that gives gameplay advantage. The moment a paying player has faster movement, more lives, or better vision, the game becomes pay-to-win. This destroys casual multiplayer communities within weeks (seen in early Miniclip "premium" features). Zentro's cosmetics are purely visual — this must be an explicit design constraint enforced at the game API level.
+- **Pay-to-win mechanics** ⚠️: Any cosmetic or purchasable item that gives gameplay advantage. The moment a paying player has faster movement, more lives, or better vision, the game becomes pay-to-win. This destroys casual multiplayer communities within weeks (seen in early Miniclip "premium" features). Gami's cosmetics are purely visual — this must be an explicit design constraint enforced at the game API level.
 
 - **Countdown timers on store items** ⚠️: "Buy in the next 02:34:17 or this item disappears forever!" is a dark pattern (Scarcity Manipulation). It creates real anxiety, is heavily criticized in mobile gaming press, and is increasingly regulated in EU/UK markets. Use "Limited" labeling without countdown clocks instead.
 
 - **Loot boxes / random-result purchases** ⚠️: Paying coins for a random cosmetic from a pool is a gambling mechanic. It is banned or regulated in Belgium, Netherlands, UK for real-money games, and increasingly scrutinized everywhere. Even virtual-currency loot boxes erode trust when players feel manipulated. Sell cosmetics directly at visible prices.
 
-- **Energy / stamina gates** ⚠️: "You can only play 3 more games today, buy energy to continue" is a mobile dark pattern. Browser gaming audiences are accustomed to unlimited play. Miniclip tried this briefly (2018–2019) and rolled it back. It is completely incompatible with Zentro's "play more" loop.
+- **Energy / stamina gates** ⚠️: "You can only play 3 more games today, buy energy to continue" is a mobile dark pattern. Browser gaming audiences are accustomed to unlimited play. Miniclip tried this briefly (2018–2019) and rolled it back. It is completely incompatible with Gami's "play more" loop.
 
-- **Interstitial ads inside gameplay** ⚠️: Mid-game video ads that interrupt play (not pre-roll, but mid-game). Pre-game ads are tolerated; mid-game ads cause tab closes. If Zentro ever runs ads, they must be between sessions only.
+- **Interstitial ads inside gameplay** ⚠️: Mid-game video ads that interrupt play (not pre-roll, but mid-game). Pre-game ads are tolerated; mid-game ads cause tab closes. If Gami ever runs ads, they must be between sessions only.
 
 - **Forced share / social gate** ⚠️: "Share this with 3 friends to unlock this item." Social extortion. Destroys goodwill, rarely converts non-players, and annoys existing players. Organic sharing (players wanting to show off their cosmetics) is the correct approach.
 
-- **Opaque coin-to-dollar conversion** ⚠️: Burying the exchange rate (e.g., "1000 Zentro Coins for $9.99" in tiny print). Players who feel deceived about real-money value become hostile. Display exchange rate clearly on every purchase flow.
+- **Opaque coin-to-dollar conversion** ⚠️: Burying the exchange rate (e.g., "1000 Gami Coins for $9.99" in tiny print). Players who feel deceived about real-money value become hostile. Display exchange rate clearly on every purchase flow.
 
 - **Mandatory tutorial lockout** ⚠️: Forcing players through a 5-minute tutorial before they can browse the store or start a game. Browser players are impatient; tutorial should be skippable or contextual (show controls when controls are first needed).
 
@@ -166,7 +166,7 @@ Pricing must be calibrated so that a player who plays 3–4 sessions per day ear
 - Suggested: 10–30 coins per game session depending on performance; Legendary items at 1500 coins = ~50–150 sessions = 2–5 weeks of regular play. This is the "Netflix threshold" — players who are engaged 2–5 weeks are retained long-term.
 
 **Dual-currency is table stakes for hybrid earn/buy economies:**
-- Zentro's single "coins" currency (earnable AND buyable) is simpler than dual-currency (e.g., Roblox's Robux vs. the deprecated Tix)
+- Gami's single "coins" currency (earnable AND buyable) is simpler than dual-currency (e.g., Roblox's Robux vs. the deprecated Tix)
 - Single currency is valid IF the coin purchase price clearly maps to dollar value
 - Risk: players who earn coins feel their earned currency is devalued when rich players buy the same coins instantly. Mitigate with "Exclusive Earned Items" — cosmetics that can ONLY be unlocked via gameplay, never purchased. This preserves prestige for grinders.
 

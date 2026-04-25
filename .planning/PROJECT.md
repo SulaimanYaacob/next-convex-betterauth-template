@@ -1,8 +1,8 @@
-# Zentro
+# Gami
 
 ## What This Is
 
-Zentro is a browser-based gaming platform that hosts solo and multiplayer mini-games. Players earn and spend virtual coins (⟟) on cosmetics — cursor skins, cursor trails, and UI themes — that apply globally across the entire platform and are visible to other players in multiplayer sessions. The platform is the product; individual games plug into it.
+Gami is a browser-based gaming platform that hosts solo and multiplayer mini-games. Players earn and spend virtual coins (⟟) on cosmetics — cursor skins, cursor trails, and UI themes — that apply globally across the entire platform and are visible to other players in multiplayer sessions. The platform is the product; individual games plug into it.
 
 ## Core Value
 
@@ -38,15 +38,15 @@ Players want to show off their cosmetics while playing with others — the socia
 
 **Existing codebase:** Next.js 16.2.4 (App Router, Turbopack) + Convex 1.36 real-time backend + Better Auth 1.6. Auth is fully configured (email/password, OAuth, 2FA, magic links, email verification). The existing "dashboard" and "settings" pages are template scaffolding — will be replaced/repurposed.
 
-**Design direction:** V2 Refined chosen from wireframes (Zentro Wireframes.html). Key characteristics:
+**Design direction:** V2 Refined chosen from wireframes (Gami Wireframes.html). Key characteristics:
 - Home: spotlight rows — solo section neutral (#f8f6f2), MP section soft blue tint (#f1f5fb)
-- Logo: geometric overlapping-squares wordmark + "zentro" in Sora font
+- Logo: geometric overlapping-squares wordmark + "gami" in Sora font
 - Navigation: global search bar in nav, filter chips below, profile avatar top-right
 - In-game: fullscreen canvas with zero chrome, ESC opens pause menu overlay (reusable component)
 - Profile: one-screen — identity, equip slots (3 cosmetic types), owned cosmetics grid
 - Mobile: bottom nav (Home + Store), compact versions of all screens
 
-**Wireframe artifacts:** `Zentro Wireframes.html` + `design-canvas.jsx` already in repo root.
+**Wireframe artifacts:** `Gami Wireframes.html` + `design-canvas.jsx` already in repo root.
 
 ## Constraints
 

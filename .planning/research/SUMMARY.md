@@ -1,4 +1,4 @@
-# Research Summary: Zentro Gaming Platform
+# Research Summary: Gami Gaming Platform
 
 **Synthesized:** 2026-04-25
 **Sources:** STACK.md (HIGH), FEATURES.md (MEDIUM), ARCHITECTURE.md (HIGH), PITFALLS.md (HIGH)
@@ -8,7 +8,7 @@
 
 ## Executive Summary
 
-Zentro is a browser gaming platform whose core value proposition is a social cosmetics economy. Players earn and display cursor skins, cursor trails, and UI themes that are visible to others in multiplayer. The platform hosts games via iframe embedding; it does not own game logic. Research confirms the stack additions needed are minimal: `stripe` (server SDK for Convex actions) and `motion` (cursor trail animation). `next-themes` is already installed and supports arbitrary named themes via the `data-theme` attribute. Everything else -- real-time presence, store UI, cosmetics application -- is achievable with the existing Convex + Next.js + Radix stack.
+Gami is a browser gaming platform whose core value proposition is a social cosmetics economy. Players earn and display cursor skins, cursor trails, and UI themes that are visible to others in multiplayer. The platform hosts games via iframe embedding; it does not own game logic. Research confirms the stack additions needed are minimal: `stripe` (server SDK for Convex actions) and `motion` (cursor trail animation). `next-themes` is already installed and supports arbitrary named themes via the `data-theme` attribute. Everything else -- real-time presence, store UI, cosmetics application -- is achievable with the existing Convex + Next.js + Radix stack.
 
 The recommended architecture centers on five independent subsystems -- Coin Ledger, Cosmetics System, Presence, Game Shell, and Store -- wired together through Convex reactive queries and internal mutations. The single most important architectural constraint is that all coin-affecting operations must live in `internalMutation` functions, never in public mutations or actions. This prevents both client-side cheating and race conditions endemic to split read-write flows in Convex actions. The second most important constraint is that Stripe webhooks must be received by a Convex `httpAction` (not a Next.js route) and must read the raw request body via `req.bytes()` before calling `stripe.webhooks.constructEvent`.
 

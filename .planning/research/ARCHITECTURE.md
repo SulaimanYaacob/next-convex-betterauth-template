@@ -1,4 +1,4 @@
-# Architecture Research: Zentro
+# Architecture Research: Gami
 
 **Domain:** Browser-based gaming platform with cosmetics, virtual currency, and real-time presence
 **Researched:** 2026-04-25

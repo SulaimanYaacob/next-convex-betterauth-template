@@ -1,4 +1,4 @@
-# Stack Research: Zentro
+# Stack Research: Gami
 
 **Researched:** 2026-04-25
 **Overall confidence:** HIGH (verified against Context7 official docs for all major decisions)

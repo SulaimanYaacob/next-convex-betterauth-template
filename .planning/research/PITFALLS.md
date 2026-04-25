@@ -1,4 +1,4 @@
-# Pitfalls Research: Zentro
+# Pitfalls Research: Gami
 
 **Domain:** Browser gaming platform with virtual economy, cosmetics, and multiplayer presence
 **Researched:** 2026-04-25
@@ -290,10 +290,10 @@
 
 **What goes wrong:** Without CSP `frame-src`, any website can load and control your platform in their own iframe. Without `frame-ancestors`, click-jacking attacks can trick users into making purchases. Without restricting what your game iframes can load, a compromised game can exfiltrate data.
 
-**Prevention (specific headers for Zentro):**
+**Prevention (specific headers for Gami):**
 ```
 Content-Security-Policy:
-  frame-ancestors 'self';                    // Prevents Zentro from being iframed on other sites
+  frame-ancestors 'self';                    // Prevents Gami from being iframed on other sites
   frame-src 'self' https://games.zentro.gg;  // Only allowed game origins
   script-src 'self' 'nonce-{random}';        // Prevent XSS in platform shell
 ```
@@ -392,7 +392,7 @@ Content-Security-Policy:
 **Prevention:**
 - Require email verification before allowing purchases (already in stack with Better Auth)
 - Consider a minimum account age (e.g., account must be 24 hours old) before real-money purchases are allowed
-- Store purchase history with Stripe Customer ID linked to Zentro user — enables detecting repeat chargebacks
+- Store purchase history with Stripe Customer ID linked to Gami user — enables detecting repeat chargebacks
 - On chargeback: flag the account, soft-lock the cosmetics (they still render but are flagged), open support ticket
 - Accept some loss rate in unit economics — trying to prevent all fraud with friction will hurt honest users more
 

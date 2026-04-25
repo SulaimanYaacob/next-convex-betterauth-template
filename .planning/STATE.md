@@ -1,4 +1,4 @@
-# Project State: Zentro
+# Project State: Gami
 
 ## Status
 Active — Phase 1 not started

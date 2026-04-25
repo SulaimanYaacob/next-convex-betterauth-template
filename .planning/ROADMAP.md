@@ -1,6 +1,6 @@
-# Roadmap: Zentro
+# Roadmap: Gami
 
-**Project:** Zentro gaming platform
+**Project:** Gami gaming platform
 **Total phases:** 5
 **v1 requirements:** 30
 **Granularity:** Coarse
@@ -35,7 +35,7 @@
 ---
 
 ### Phase 2: Home + Presence
-**Goal:** Players land on a home page that looks like Zentro, see who is online in multiplayer, and can always see their coin balance in the nav
+**Goal:** Players land on a home page that looks like Gami, see who is online in multiplayer, and can always see their coin balance in the nav
 **Depends on:** Phase 1
 **Requirements:** HOME-01, HOME-02, HOME-03, HOME-04, PRES-02, PRES-03, ECON-04
 **Success Criteria** (what must be TRUE):
