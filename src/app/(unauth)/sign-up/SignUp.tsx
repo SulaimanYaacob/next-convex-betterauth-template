@@ -15,8 +15,10 @@ import { Loader2, X } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
 import { toast } from "sonner";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function SignUp() {
+  const router = useRouter();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -73,6 +75,7 @@ export default function SignUp() {
           onSuccess: () => {
             setLoading(false);
             toast.success("Account created successfully!");
+            router.push("/dashboard");
           },
           onError: async (ctx) => {
             setLoading(false);

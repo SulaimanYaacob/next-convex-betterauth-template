@@ -7,6 +7,7 @@ import { useEffect } from "react";
 export default function Home() {
   const { isAuthenticated, isLoading } = useConvexAuth();
   useEffect(() => {
+    if (isLoading) return;
     if (isAuthenticated) {
       redirect("/dashboard");
     } else {

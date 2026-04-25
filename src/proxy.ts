@@ -1,46 +1,24 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { getSessionCookie } from "better-auth/cookies";
-import { createAuth } from "./lib/auth";
 import { NextRequest, NextResponse } from "next/server";
-import { betterFetch } from "@better-fetch/fetch";
-
-type Session = ReturnType<typeof createAuth>["$Infer"]["Session"];
-const getSession = async (request: NextRequest) => {
-  const { data: session } = await betterFetch<Session>(
-    "/api/auth/get-session",
-    {
-      baseURL: request.nextUrl.origin,
-      headers: {
-        cookie: request.headers.get("cookie") ?? "",
-        origin: request.nextUrl.origin,
-      },
-    },
-  );
-  return session;
-};
 
 const signInRoutes = ["/sign-in", "/sign-up", "/verify-2fa", "/reset-password"];
 
-// Just check cookie, recommended approach
 export default async function proxy(request: NextRequest) {
-  const sessionCookie = getSessionCookie(request);
-  // Uncomment to fetch the session (not recommended)
-  // const session = await getSession(request);
-
+  const session = getSessionCookie(request);
+  console.log("[proxy] cookie header:", request.headers.get("cookie"));
+  console.log("[proxy] session:", session);
   const isSignInRoute = signInRoutes.includes(request.nextUrl.pathname);
 
-  if (isSignInRoute && !sessionCookie) {
+  if (isSignInRoute && !session) {
     return NextResponse.next();
   }
 
-  if (!isSignInRoute && !sessionCookie) {
+  if (!isSignInRoute && !session) {
     return NextResponse.redirect(new URL("/sign-in", request.url));
   }
 
   if (isSignInRoute || request.nextUrl.pathname === "/") {
-    return NextResponse.redirect(
-      new URL("/dashboard", request.url),
-    );
+    return NextResponse.redirect(new URL("/dashboard", request.url));
   }
 
   return NextResponse.next();

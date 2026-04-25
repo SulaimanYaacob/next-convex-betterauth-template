@@ -1,5 +1,5 @@
-import { convexAdapter } from "@convex-dev/better-auth";
 import { convex } from "@convex-dev/better-auth/plugins";
+import authConfig from "../../convex/auth.config";
 import { anonymous, genericOAuth, twoFactor } from "better-auth/plugins";
 import { emailOTP } from "better-auth/plugins";
 import {
@@ -18,10 +18,9 @@ import {
   ActionCtx,
 } from "../../convex/_generated/server";
 import { internal } from "../../convex/_generated/api";
+import { asyncMap } from "convex-helpers";
 
 type GenericCtx = QueryCtx | MutationCtx | ActionCtx;
-import { asyncMap } from "convex-helpers";
-import { Id } from "../../convex/_generated/dataModel";
 
 const siteUrl = process.env.SITE_URL;
 if (!siteUrl) {
@@ -36,7 +35,6 @@ const createOptions = (ctx: GenericCtx) =>
     secret: process.env.BETTER_AUTH_SECRET,
     advanced: {
       disableCSRFCheck: false,
-      useSecureCookies: process.env.NODE_ENV === "production",
     },
     account: {
       accountLinking: {
@@ -65,16 +63,16 @@ const createOptions = (ctx: GenericCtx) =>
       },
     },
     socialProviders: {
-      github: {
-        clientId: process.env.GITHUB_CLIENT_ID as string,
-        clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
-      },
-      google: {
-        clientId: process.env.GOOGLE_CLIENT_ID as string,
-        clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
-        accessType: "offline",
-        prompt: "select_account consent",
-      },
+      // github: {
+      //   clientId: process.env.GITHUB_CLIENT_ID as string,
+      //   clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
+      // },
+      // google: {
+      //   clientId: process.env.GOOGLE_CLIENT_ID as string,
+      //   clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+      //   accessType: "offline",
+      //   prompt: "select_account consent",
+      // },
     },
     user: {
       // This field is available in the `onCreateUser` hook from the component,
@@ -164,7 +162,7 @@ const createOptions = (ctx: GenericCtx) =>
         },
       },
     },
-  } satisfies BetterAuthOptions);
+  }) satisfies BetterAuthOptions;
 
 export const createAuth = (ctx: GenericCtx) => {
   const options = createOptions(ctx);
@@ -172,11 +170,11 @@ export const createAuth = (ctx: GenericCtx) => {
     ...options,
     plugins: [
       ...options.plugins,
-      // Pass in options so plugin schema inference flows through. Only required
-      // for plugins that customize the user or session schema.
-      // See "Some caveats":
-      // https://www.better-auth.com/docs/concepts/session-management#customizing-session-response
-      convex(),
+      // Pass in options so plugin schema inference flows through.
+      convex({
+        authConfig,
+        jwksRotateOnTokenGenerationError: true, // Added this to fix the JOSENotSupported error
+      }),
     ],
   });
 };

@@ -4,11 +4,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Tech Stack
 
-- **Next.js 16.0.1** (App Router with Turbopack) - React 19.2.0
-- **Convex** - Real-time backend database and functions
-- **Better Auth** - Authentication system with email verification, 2FA, magic links, and OAuth
-- **TypeScript** - Full type safety throughout
-- **Tailwind CSS v4** - Styling with dark mode support
+- **Next.js 16.2.4** (App Router with Turbopack) - React 19.2.5
+- **Convex 1.36** - Real-time backend database and functions
+- **Better Auth 1.6** (`@convex-dev/better-auth` 0.12) - Authentication system with email verification, 2FA, magic links, and OAuth
+- **TypeScript 6.0** - Full type safety throughout
+- **Tailwind CSS v4.2** - Styling with dark mode support
 - **Radix UI** - Accessible component primitives
 - **pnpm** - Package manager
 
@@ -98,17 +98,25 @@ This application uses a **dual-system authentication architecture**:
    - Handles `/api/auth/*` endpoints through Convex
 
 5. **Proxy Protection** (`src/proxy.ts`) - Route protection middleware (renamed from middleware.ts in Next.js 16)
-   - Uses cookie-based session checking (recommended approach)
+   - Uses `getSession()` via `betterFetch` to validate session server-side (more reliable than cookie parsing)
    - Redirects unauthenticated users to `/sign-in`
    - Redirects authenticated users from auth pages to `/dashboard`
    - Matcher excludes static assets, `_next`, and `api/auth` routes
 
+6. **Next.js Auth Handler** (`src/app/api/auth/[...all]/route.ts`) - Proxies auth requests to Convex
+   - Uses `convexBetterAuthNextJs({ convexUrl, convexSiteUrl })` from `@convex-dev/better-auth/nextjs`
+   - Requires both `NEXT_PUBLIC_CONVEX_URL` and `NEXT_PUBLIC_CONVEX_SITE_URL` env vars
+
 ### Key Authentication Concepts
 
-- **Session checking**: `proxy.ts` uses `getSessionCookie()` for performance (recommended over fetching full session)
+- **Session checking**: `proxy.ts` uses `getSession()` (calls `/api/auth/get-session`) — more reliable than `getSessionCookie()` local parsing
+- **`convex()` plugin**: Requires `{ authConfig }` argument — pass the imported `convex/auth.config.ts` default export
+- **Auth config**: `convex/auth.config.ts` uses `getAuthConfigProvider()` from `@convex-dev/better-auth/auth-config` for RS256 JWT setup
+- **Password reset**: `authClient.requestPasswordReset()` (renamed from `forgetPassword` in better-auth 1.6)
 - **User data split**: Auth metadata (email, name, image) lives in Better Auth tables; application data lives in `users` table
 - **Lifecycle hooks**: `onCreateUser`, `onDeleteUser`, `onUpdateUser` keep application user table in sync with auth system
 - **Plugin synchronization**: Client plugins (`src/lib/auth-client.ts`) must match server plugins (`src/lib/auth.ts`)
+- **TypeScript node types**: Both `tsconfig.json` and `convex/tsconfig.json` need `"types": ["node"]` for `process.env` to work
 
 ### Convex Integration
 
@@ -259,3 +267,11 @@ pnpm convex env set BETTER_AUTH_SECRET your-prod-secret --prod
 - **Turbopack is default** - no `--turbo` flag needed in dev/build commands
 - **Proxy pattern** - `src/proxy.ts` replaces `middleware.ts` (deprecated convention)
 - **React 19** - Using React 19.2.0 with async server components
+
+<!-- convex-ai-start -->
+This project uses [Convex](https://convex.dev) as its backend.
+
+When working on Convex code, **always read `convex/_generated/ai/guidelines.md` first** for important guidelines on how to correctly use Convex APIs and patterns. The file contains rules that override what you may have learned about Convex from training data.
+
+Convex agent skills for common tasks can be installed by running `npx convex ai-files install`.
+<!-- convex-ai-end -->
