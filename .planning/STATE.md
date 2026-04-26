@@ -20,18 +20,18 @@ See: .planning/PROJECT.md
 
 ## Current Position
 - **Phase:** 1
-- **Plan:** 3 of 4 complete (Wave 2: plan 03 done, plan 04 pending)
-- **Status:** Executing — plan 04 next
-- **Progress:** 0/5 phases complete (Phase 1 in progress)
+- **Plan:** 4 of 4 complete (Wave 2: plans 03 and 04 done — Phase 1 complete)
+- **Status:** Phase 1 complete — ready to start Phase 2
+- **Progress:** 1/5 phases complete
 
 ```
-[=         ] 10%
+[==        ] 20%
 ```
 
 ## Performance Metrics
-- Plans completed: 3
-- Requirements delivered: 7/30 (AUTH-01, AUTH-02, AUTH-03, AUTH-04 + schema + UI primitives)
-- Phases completed: 0/5
+- Plans completed: 4
+- Requirements delivered: 9/30 (AUTH-01, AUTH-02, AUTH-03, AUTH-04 + schema + UI primitives + proxy hardening + home placeholder)
+- Phases completed: 1/5
 
 ## Accumulated Context
 
@@ -52,6 +52,12 @@ See: .planning/PROJECT.md
 - Better Auth onCreateUser hook must create full user row in application users table
 - Presence table is separate — never add status/lastSeen fields to the users document
 
+### Key Decisions Locked (Plan 04)
+- Session validated via HTTP fetch to /api/auth/get-session (not local cookie parsing) — per CLAUDE.md and RESEARCH Assumption A1
+- cache: no-store on session fetch to prevent edge cache serving stale auth state
+- Anonymous (guest) sessions count as authenticated for proxy — bounce from /sign-in but blocked from /dashboard in Phase 1
+- Early-return skips HTTP roundtrip for routes not in protectedRoutes or authRoutes
+
 ### Pending Decisions
 - Cursor asset format: .cur vs SVG cursor:url() vs base64 data URL (browser support varies — needs spike in Phase 4)
 - Coin earn formula constants: score divisor, per-session cap, daily cap (product decision, must be set before Phase 3)
@@ -59,11 +65,11 @@ See: .planning/PROJECT.md
 - Multiplayer cosmetics broadcast: presence table with cosmetic slug fields vs dedicated real-time session-state table
 
 ### Blockers
-None — ready to start Phase 1
+None — Phase 1 complete, ready to start Phase 2
 
 ## Session Continuity
-- Last action: Completed 01-03-PLAN.md — sign-in and sign-up auth pages built
-- Next action: Execute 01-04-PLAN.md — proxy hardening and home placeholder
+- Last action: Completed 01-04-PLAN.md — proxy hardening and home placeholder built
+- Next action: Execute Phase 2 plans — Home + Presence
 
 ## Last Updated
-2026-04-26 — plan 03 complete
+2026-04-26 — plan 04 complete (Phase 1 done)

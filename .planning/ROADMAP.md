@@ -9,7 +9,7 @@
 
 ## Phases
 
-- [ ] **Phase 1: Foundation** — Schema lock, auth UI with guest mode, coin ledger table
+- [x] **Phase 1: Foundation** — Schema lock, auth UI with guest mode, coin ledger table
 - [ ] **Phase 2: Home + Presence** — V2 Refined home layout, real-time presence, nav coin balance
 - [ ] **Phase 3: Game Shell + Earn** — iframe embedding, ESC overlay, coin earn via postMessage
 - [ ] **Phase 4: Cosmetics + Store + Profile** — Full earn-spend-equip loop
@@ -30,10 +30,10 @@
   4. A guest who later registers keeps their session continuity (no progress reset)
   5. The Convex schema has coinTransactions, presence, storeItems, ownedItems, equippedItems, and games tables with correct indexes — no schema migrations needed in later phases
 **Plans**: 4 plans
-- [ ] 01-01-PLAN.md — Convex schema lock (7 tables) + sync hooks + presence mutation + onLinkAccount
-- [ ] 01-02-PLAN.md — UI primitives: GamiLogo, GuestBanner, (unauth) layout
-- [ ] 01-03-PLAN.md — Auth pages: sign-in + sign-up with Play as Guest
-- [ ] 01-04-PLAN.md — Proxy hardening + home placeholder
+- [x] 01-01-PLAN.md — Convex schema lock (7 tables) + sync hooks + presence mutation + onLinkAccount
+- [x] 01-02-PLAN.md — UI primitives: GamiLogo, GuestBanner, (unauth) layout
+- [x] 01-03-PLAN.md — Auth pages: sign-in + sign-up with Play as Guest
+- [x] 01-04-PLAN.md — Proxy hardening + home placeholder
 
 **UI hint**: yes
 
@@ -101,7 +101,7 @@
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/? | Not started | - |
+| 1. Foundation | 4/4 | Complete | 2026-04-26 |
 | 2. Home + Presence | 0/? | Not started | - |
 | 3. Game Shell + Earn | 0/? | Not started | - |
 | 4. Cosmetics + Store + Profile | 0/? | Not started | - |
