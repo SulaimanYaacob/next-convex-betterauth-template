@@ -18,8 +18,6 @@ import {
   ActionCtx,
 } from "../../convex/_generated/server";
 import { internal } from "../../convex/_generated/api";
-import { asyncMap } from "convex-helpers";
-
 type GenericCtx = QueryCtx | MutationCtx | ActionCtx;
 
 const siteUrl = process.env.SITE_URL;
@@ -89,7 +87,16 @@ const createOptions = (ctx: GenericCtx) =>
       },
     },
     plugins: [
-      anonymous(),
+      anonymous({
+        onLinkAccount: async ({ anonymousUser, newUser }) => {
+          // Phase 1: no app-level data migration needed yet (no game data exists).
+          // The Better Auth delete.after databaseHook fires after this for the
+          // anonymous user record, which calls syncUserDeletion to cascade-clean
+          // the app users row + all FK tables. AUTH-04 progress preservation will
+          // be implemented in Phase 3 when game sessions exist; for now this hook
+          // is a placeholder that documents the integration point.
+        },
+      }),
       magicLink({
         sendMagicLink: async ({ email, url }) => {
           await sendMagicLink(requireMutationCtx(ctx) as any, {
@@ -144,17 +151,24 @@ const createOptions = (ctx: GenericCtx) =>
               const mutationCtx = ctx as MutationCtx;
               const appUser = await mutationCtx.db
                 .query("users")
-                .withIndex("email", (q) => q.eq("email", user.email))
+                .withIndex("by_email", (q) => q.eq("email", user.email))
                 .first();
 
               if (appUser) {
-                const todos = await mutationCtx.db
-                  .query("todos")
-                  .withIndex("userId", (q) => q.eq("userId", appUser._id))
-                  .collect();
-                await asyncMap(todos, async (todo) => {
-                  await mutationCtx.db.delete(todo._id);
-                });
+                const presenceRow = await mutationCtx.db
+                  .query("presence")
+                  .withIndex("by_userId", (q) => q.eq("userId", appUser._id))
+                  .first();
+                if (presenceRow) await mutationCtx.db.delete(presenceRow._id);
+
+                for (const table of ["coinLedger", "ownedItems", "equippedItems", "games"] as const) {
+                  const rows = await mutationCtx.db
+                    .query(table)
+                    .withIndex("by_userId", (q) => q.eq("userId", appUser._id))
+                    .take(100);
+                  for (const row of rows) await mutationCtx.db.delete(row._id);
+                }
+
                 await mutationCtx.db.delete(appUser._id);
               }
             }
