@@ -1,8 +1,9 @@
 ---
 phase: 1
 name: Foundation
-status: draft
+status: approved
 created: 2026-04-26
+reviewed_at: 2026-04-26
 ---
 
 # UI-SPEC: Phase 1 — Foundation
@@ -50,23 +51,26 @@ The auth pages use the Gami brand palette, not the generic shadcn defaults. Thes
 ### Typography
 
 Font family:
-- **Sora** — logo wordmark only. Load via `next/font/google` with weights `[600, 700]` and `display: "swap"`. Variable: `--font-sora`.
+- **Sora** — logo wordmark only. Load via `next/font/google` with weight `[600]` and `display: "swap"`. Variable: `--font-sora`.
 - **Inter** — body, labels, inputs, buttons, error messages. Already loaded in `layout.tsx` (`--font-inter`). Keep as-is.
+
+**Type scale — exactly 4 sizes, exactly 2 weights:**
 
 | Role | Size | Weight | Line-height | Where |
 |------|------|--------|-------------|-------|
-| Logo wordmark | 28px (`text-3xl`) | 700 | 1 (leading-none) | Auth card header |
+| Logo wordmark | 28px (`text-3xl`) | 600 (semibold) | 1 (leading-none) | Auth card header |
 | Card heading | 20px (`text-xl`) | 600 (semibold) | 1.2 | "Welcome back" / "Create your account" |
-| Card subheading | 14px (`text-sm`) | 400 | 1.4 | Below heading — "Sign in to continue" |
-| Body / labels | 14px (`text-sm`) | 400 | 1.5 | Field labels, placeholder text |
-| Input text | 14px (`text-sm`) | 400 | 1.5 | User-typed text in inputs |
-| Primary button | 14px (`text-sm`) | 500 (medium) | 1 | "Sign in", "Create account" |
-| Inline error | 12px (`text-xs`) | 400 | 1.4 | Below field on error state |
-| Secondary link | 14px (`text-sm`) | 400 | 1.5 | "Don't have an account? Sign up" |
-| Guest link | 13px (`text-[13px]`) | 400 | 1.4 | "Play as Guest" text link |
-| Guest banner text | 13px (`text-[13px]`) | 400 | 1.4 | Banner body copy |
+| Card subheading | 14px (`text-sm`) | 400 (regular) | 1.4 | Below heading — "Sign in to continue" |
+| Body / labels | 14px (`text-sm`) | 400 (regular) | 1.5 | Field labels, placeholder text |
+| Input text | 14px (`text-sm`) | 400 (regular) | 1.5 | User-typed text in inputs |
+| Primary button | 14px (`text-sm`) | 600 (semibold) | 1 | "Sign in", "Create account" |
+| Inline error | 12px (`text-xs`) | 400 (regular) | 1.4 | Below field on error state |
+| Secondary link | 14px (`text-sm`) | 400 (regular) | 1.5 | "Don't have an account? Sign up" |
+| Guest link | 12px (`text-xs`) | 400 (regular) | 1.4 | "Play as Guest" text link |
+| Guest banner text | 12px (`text-xs`) | 400 (regular) | 1.4 | Banner body copy |
 
-Two weights in use: **400 (regular)** and **600 (semibold)**. The 500 on buttons is a minor variant — acceptable as a third weight only for interactive elements.
+**Declared weights: 400 (regular) and 600 (semibold) — exactly 2.**
+**Declared sizes: 12px, 14px, 20px, 28px — exactly 4.**
 
 ### Spacing
 
@@ -138,12 +142,12 @@ Full-viewport centered column. Background: `#f8f6f2`. No nav, no footer.
           [ErrorMessage if invalid]
         [Button, variant=default, size=lg, w-full]
           "Sign in"
-      [CardFooter, flex-col gap-3]
+      [CardFooter, flex-col gap-2]
         [Secondary links row]
           "Don't have an account?" [link: "Sign up" → /sign-up]
         [Divider: thin hr or "or" text, text-muted-foreground text-xs]
         [Guest link]
-          [link/button: "Play as Guest"]
+          [link/button: "Play as Guest"]   ← text-xs
 ```
 
 **Responsive**
@@ -183,12 +187,12 @@ Identical layout structure to sign-in. Same background, same card width.
           [ErrorMessage if invalid]
         [Button, variant=default, size=lg, w-full]
           "Create account"
-      [CardFooter, flex-col gap-3]
+      [CardFooter, flex-col gap-2]
         [Secondary links row]
           "Already have an account?" [link: "Sign in" → /sign-in]
         [Divider]
         [Guest link]
-          [link/button: "Play as Guest"]
+          [link/button: "Play as Guest"]   ← text-xs
 ```
 
 **States**
@@ -225,10 +229,10 @@ Identical layout structure to sign-in. Same background, same card width.
 ```
 [full-width bar, fixed top-0 or top of content flow, bg: #f1f5fb, border-bottom: 1px solid rgba(59,130,246,0.15)]
   [container, max-w-7xl mx-auto px-4, flex items-center justify-between]
-    [left: text]
+    [left: text, text-xs]
       "Create an account to save your progress"
-    [right: actions row, gap-3]
-      [link/button: "Create account" → /sign-up]   ← text-sm font-medium, primary color
+    [right: actions row, gap-2]
+      [link/button: "Create account" → /sign-up]   ← text-xs font-semibold, primary color
       [icon button: X, aria-label="Dismiss banner"] ← ghost, size-icon sm
 ```
 
@@ -262,7 +266,7 @@ interface GamiLogoProps {
 Structure:
 - Flex row, `items-center gap-2`
 - Left: geometric overlapping-squares SVG mark (two overlapping rounded squares, brand primary color `--primary`)
-- Right: "gami" in Sora font, `font-bold`, `text-foreground`
+- Right: "gami" in Sora font, `font-semibold`, `text-foreground`
 
 The SVG mark is two rounded squares (8px radius, 20×20px each at `md` size) offset by 6px, overlapping. Front square: `fill: var(--primary)`, back square: `fill: var(--primary)` at 40% opacity.
 
@@ -432,7 +436,7 @@ All interactive elements meet WCAG 2.5.5 minimum 44×44px touch target:
 
 ### Color Contrast
 
-- Primary orange-amber on white: verify meets WCAG AA 4.5:1 for 14px text. The `--primary` oklch value (0.6716 0.1368 48.5130) on white renders at approximately 3.1:1 — insufficient for small text. Use `text-primary-foreground` (white) on the filled button background instead; the button background itself provides contrast for the button text. For text links using primary color, use `font-medium` to compensate slightly, and verify in implementation.
+- Primary orange-amber on white: verify meets WCAG AA 4.5:1 for 14px text. The `--primary` oklch value (0.6716 0.1368 48.5130) on white renders at approximately 3.1:1 — insufficient for small text. Use `text-primary-foreground` (white) on the filled button background instead; the button background itself provides contrast for the button text. For text links using primary color, use `font-semibold` to compensate slightly, and verify in implementation.
 - Inline error (destructive on white): `--destructive` oklch(0.6368 0.2078 25.3313) on white — verify meets 4.5:1. If not, darken slightly for text-only error messages.
 - Muted foreground on white: `--muted-foreground` oklch(0.5510) — verify 4.5:1 for 14px text; if insufficient, use `--foreground` at 70% opacity as alternative for subheadings.
 
@@ -538,4 +542,5 @@ The following UI elements are explicitly NOT part of Phase 1 and must not be imp
 ---
 
 *Spec authored: 2026-04-26*
+*Revised: 2026-04-26 — checker iteration 1 fixes*
 *Status: draft — pending checker validation*
