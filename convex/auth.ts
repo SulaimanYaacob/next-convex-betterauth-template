@@ -1,8 +1,7 @@
 import { createClient } from "@convex-dev/better-auth";
 import { components } from "./_generated/api";
 import { query } from "./_generated/server";
-import { DataModel, Id } from "./_generated/dataModel";
-import { asyncMap } from "convex-helpers";
+import { DataModel } from "./_generated/dataModel";
 
 export const betterAuthComponent = createClient<DataModel>(
   components.betterAuth
@@ -30,7 +29,7 @@ export const getCurrentUser = query({
     // Get user data from your application's database
     const appUser = await ctx.db
       .query("users")
-      .withIndex("email", (q) => q.eq("email", betterAuthUser.email))
+      .withIndex("by_email", (q) => q.eq("email", betterAuthUser.email))
       .first();
 
     // If no app user found, just return the Better Auth user data
