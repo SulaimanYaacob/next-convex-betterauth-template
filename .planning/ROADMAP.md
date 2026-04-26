@@ -29,7 +29,12 @@
   3. A visitor can click "Play as Guest" and enter a game without any registration step
   4. A guest who later registers keeps their session continuity (no progress reset)
   5. The Convex schema has coinTransactions, presence, storeItems, ownedItems, equippedItems, and games tables with correct indexes — no schema migrations needed in later phases
-**Plans**: TBD
+**Plans**: 4 plans
+- [ ] 01-01-PLAN.md — Convex schema lock (7 tables) + sync hooks + presence mutation + onLinkAccount
+- [ ] 01-02-PLAN.md — UI primitives: GamiLogo, GuestBanner, (unauth) layout
+- [ ] 01-03-PLAN.md — Auth pages: sign-in + sign-up with Play as Guest
+- [ ] 01-04-PLAN.md — Proxy hardening + home placeholder
+
 **UI hint**: yes
 
 ---
