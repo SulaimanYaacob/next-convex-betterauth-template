@@ -68,8 +68,8 @@ See: .planning/PROJECT.md
 None — Phase 1 complete, ready to start Phase 2
 
 ## Session Continuity
-- Last action: Completed 01-04-PLAN.md — proxy hardening and home placeholder built
-- Next action: Execute Phase 2 plans — Home + Presence
+- Last action: Phase 2 context gathered — nav layout decisions locked
+- Next action: Plan Phase 2 — `/gsd-plan-phase 2`
 
 ## Last Updated
-2026-04-26 — plan 04 complete (Phase 1 done)
+2026-04-30 — Phase 2 context captured
