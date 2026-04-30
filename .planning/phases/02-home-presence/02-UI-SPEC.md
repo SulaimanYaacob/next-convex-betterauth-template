@@ -40,9 +40,8 @@ tool: manual (Radix UI + Tailwind CSS v4 — no shadcn components.json)
 | Token | Value | Use |
 |-------|-------|-----|
 | 4px | `p-1`, `gap-1` | Inline micro-gaps (icon + label) |
-| 8px | `p-2`, `gap-2` | Chip padding, badge padding, tight rows |
-| 12px | `p-3`, `gap-3` | Card internal padding (compact) |
-| 16px | `px-4`, `gap-4` | Standard content padding, nav horizontal padding |
+| 8px | `p-2`, `gap-2` | Chip padding, badge padding, tight rows, card internal padding (compact) |
+| 16px | `px-4`, `gap-4` | Standard content padding, nav horizontal padding, card internal padding (standard) |
 | 24px | `p-6`, `gap-6` | Section internal padding, card grid gap |
 | 32px | `py-8` | Section vertical padding |
 | 48px | `py-12` | Section top-of-page breathing room |
@@ -120,6 +119,10 @@ Status dots are 8px filled circles overlaid bottom-right of presence avatars.
 - Nav background: `bg-background border-b border-border` (white + hairline bottom border).
 - Mobile bottom nav: `bg-background border-t border-border` (white + hairline top border).
 
+### Focal Point
+
+Primary focal point: the "Solo" and "Multiplayer" section headings anchored by the two-section split are the primary visual landmarks of the home screen. The presence panel (player avatars with status dots) is the secondary focal point within the Multiplayer section.
+
 ---
 
 ## 5. Component Inventory
@@ -165,7 +168,7 @@ Status dots are 8px filled circles overlaid bottom-right of presence avatars.
 - Inner: `w-full max-w-7xl mx-auto px-6 flex items-center gap-4`
 - Logo: left, no flex-grow, `shrink-0`
 - Search: `flex-1 max-w-xl` centered in the space between logo and right cluster
-- Right cluster: `flex items-center gap-3 shrink-0`
+- Right cluster: `flex items-center gap-4 shrink-0`
 - CoinBalance: shown only when authenticated (session user is not anonymous). Hidden entirely for guests — no `⟟ 0` placeholder.
 - Avatar: 36px (`size-9`), click opens DropdownMenu
 
@@ -200,7 +203,7 @@ Status dots are 8px filled circles overlaid bottom-right of presence avatars.
 ```
 
 - Positioned below the nav (accounts for `pt-16` on desktop, `pt-[calc(56px+48px)]` on mobile for top bar + search row)
-- `flex flex-row gap-2 px-4 sm:px-6 lg:px-8 py-3 overflow-x-auto scrollbar-hide`
+- `flex flex-row gap-2 px-4 sm:px-6 lg:px-8 py-2 overflow-x-auto scrollbar-hide`
 - Each chip: `px-4 h-9 rounded-full text-sm` — pill shape
 - Active chip: `bg-primary text-primary-foreground`
 - Inactive chip: `bg-muted text-muted-foreground hover:bg-muted/80`
@@ -243,8 +246,8 @@ Hardcoded placeholder games:
 ### Presence Panel
 
 - Container: `rounded-xl border border-border bg-background/60 p-4`
-- Heading: `text-sm font-semibold mb-3` — "Online now"
-- Layout: horizontal scroll row — `flex flex-row gap-3 overflow-x-auto pb-1`
+- Heading: `text-sm font-semibold mb-2` — "Online now"
+- Layout: horizontal scroll row — `flex flex-row gap-4 overflow-x-auto pb-1`
 - Each player entry: `flex flex-col items-center gap-1 shrink-0 w-14`
 - Avatar: `size-10` (40px), initials-based (no photo in Phase 2)
 - Status dot: `absolute bottom-0 right-0 size-2 rounded-full ring-2 ring-background` — colors per status table above
