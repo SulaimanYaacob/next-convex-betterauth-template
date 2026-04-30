@@ -16,6 +16,7 @@ import type * as emails_resetPassword from "../emails/resetPassword.js";
 import type * as emails_verifyEmail from "../emails/verifyEmail.js";
 import type * as emails_verifyOTP from "../emails/verifyOTP.js";
 import type * as http from "../http.js";
+import type * as presence from "../presence.js";
 import type * as users from "../users.js";
 import type * as util from "../util.js";
 
@@ -34,6 +35,7 @@ declare const fullApi: ApiFromModules<{
   "emails/verifyEmail": typeof emails_verifyEmail;
   "emails/verifyOTP": typeof emails_verifyOTP;
   http: typeof http;
+  presence: typeof presence;
   users: typeof users;
   util: typeof util;
 }>;

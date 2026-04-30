@@ -2,19 +2,16 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/next-theme/theme-provider";
-import { Footer } from "@/components/footer";
-
 import { ConvexClientProvider } from "./ConvexClientProvider";
-import { Toaster } from "sonner";
 
 const inter = Inter({
   variable: "--font-inter",
-  subsets: ["latin"]
-})
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Nextjs with convex",
-  description: "First templete by Podalls",
+  description: "First template by Podalls",
 };
 
 export default function RootLayout({
@@ -25,24 +22,22 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} min-h-[calc(100vh-2rem)] flex flex-col gap-4 antialiased`}
+        className={`${inter.variable} h-svh w-full overflow-hidden bg-background antialiased`}
       >
-         <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <ConvexClientProvider>
-            <main className=" px-2 md:px-4 grow flex flex-col">
-            
-              {children}
-            </main>
-            <Footer />
-            <Toaster />
-            </ConvexClientProvider>
-            
-          </ThemeProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <ConvexClientProvider>
+            <div className="flex flex-col h-full w-full">
+              <main className="grow flex flex-col overflow-hidden">
+                {children}
+              </main>
+            </div>
+          </ConvexClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
