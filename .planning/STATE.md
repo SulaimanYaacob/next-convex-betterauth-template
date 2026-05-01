@@ -1,7 +1,7 @@
 # Project State: Gami
 
 ## Status
-Active — Phase 2 complete, Phase 3 ready to discuss
+Active — Phase 3 context captured, ready to plan
 
 ## Project Reference
 See: .planning/PROJECT.md
@@ -21,7 +21,7 @@ See: .planning/PROJECT.md
 ## Current Position
 - **Phase:** 3
 - **Plan:** 0 of ? (Phase 3 not yet planned)
-- **Status:** Phase 2 complete — ready to discuss/plan Phase 3
+- **Status:** Phase 3 context captured — ready to plan
 - **Progress:** 2/5 phases complete
 
 ```
@@ -60,16 +60,16 @@ See: .planning/PROJECT.md
 
 ### Pending Decisions
 - Cursor asset format: .cur vs SVG cursor:url() vs base64 data URL (browser support varies — needs spike in Phase 4)
-- Coin earn formula constants: score divisor, per-session cap, daily cap (product decision, must be set before Phase 3)
+- Coin earn formula constants: RESOLVED in Phase 3 context — score ÷ 100, 100 coin session cap, no daily cap yet
 - Cursor trail: DOM node pool vs canvas approach (performance spike needed before Phase 4 implementation)
 - Multiplayer cosmetics broadcast: presence table with cosmetic slug fields vs dedicated real-time session-state table
 
 ### Blockers
-None — Phase 1 complete, ready to start Phase 2
+None
 
 ## Session Continuity
-- Last action: Phase 2 complete — UAT passed (9/10, 1 cosmetic fix shipped)
-- Next action: Discuss/plan Phase 3 — `/gsd-discuss-phase 3`
+- Last action: Phase 3 context gathered — 6 areas discussed, CONTEXT.md committed
+- Next action: Plan Phase 3 — `/gsd-plan-phase 3`
 
 ## Last Updated
-2026-05-01 — Phase 2 complete
+2026-05-01 — Phase 3 context captured
