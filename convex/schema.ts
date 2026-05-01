@@ -27,6 +27,7 @@ export default defineSchema({
       v.literal("online"),
       v.literal("in-game"),
       v.literal("idle"),
+      v.literal("offline"),
     ),
   }).index("by_userId", ["userId"]),
 
