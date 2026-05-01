@@ -10,11 +10,12 @@ export function FilterChips() {
   const [active, setActive] = useState<Chip>("All");
 
   return (
-    <div
-      role="radiogroup"
-      aria-label="Game filters"
-      className="flex flex-row gap-2 px-4 sm:px-6 lg:px-8 py-2 overflow-x-auto"
-    >
+    <div className="w-full px-4 sm:px-6 lg:px-8 py-2 overflow-x-auto">
+      <div
+        role="radiogroup"
+        aria-label="Game filters"
+        className="flex flex-row gap-2 w-full max-w-7xl mx-auto"
+      >
       {CHIPS.map((chip) => (
         <button
           key={chip}
@@ -32,6 +33,7 @@ export function FilterChips() {
           {chip}
         </button>
       ))}
+      </div>
     </div>
   );
 }

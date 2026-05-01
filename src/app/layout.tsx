@@ -41,7 +41,7 @@ export default function RootLayout({
               <GuestBanner />
               <AppNav />
               <MobileNav />
-              <main className="pt-16 md:pt-16 [@media(max-width:767px)]:pt-[104px] pb-16 md:pb-0">
+              <main className="pt-16 md:pt-16 [@media(max-width:767px)]:pt-[104px] pb-16 md:pb-0 flex flex-col">
                 {children}
               </main>
               <MobileBottomNav />

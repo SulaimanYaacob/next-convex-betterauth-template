@@ -11,7 +11,7 @@ const sora = Sora({
 export default function UnAuthLayout({ children }: { children: ReactNode }) {
   return (
     <div
-      className={`${sora.variable} min-h-svh flex flex-col items-center justify-center gap-8 px-4 py-12`}
+      className={`${sora.variable} flex-1 flex flex-col items-center justify-center gap-8 px-4 py-12`}
       style={{ backgroundColor: "#f8f6f2", colorScheme: "light" }}
       data-theme="light"
     >
