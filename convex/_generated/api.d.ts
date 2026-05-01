@@ -9,6 +9,8 @@
  */
 
 import type * as auth from "../auth.js";
+import type * as coinLedger from "../coinLedger.js";
+import type * as crons from "../crons.js";
 import type * as email from "../email.js";
 import type * as emails_components_BaseEmail from "../emails/components/BaseEmail.js";
 import type * as emails_magicLink from "../emails/magicLink.js";
@@ -28,6 +30,8 @@ import type {
 
 declare const fullApi: ApiFromModules<{
   auth: typeof auth;
+  coinLedger: typeof coinLedger;
+  crons: typeof crons;
   email: typeof email;
   "emails/components/BaseEmail": typeof emails_components_BaseEmail;
   "emails/magicLink": typeof emails_magicLink;
