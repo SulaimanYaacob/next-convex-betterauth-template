@@ -1,17 +1,23 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/next-theme/theme-provider";
 import { ConvexClientProvider } from "./ConvexClientProvider";
+import { HeartbeatProvider } from "@/components/heartbeat-provider";
+import { AppNav } from "@/components/app-nav";
+import { MobileNav } from "@/components/mobile-nav";
+import { MobileBottomNav } from "@/components/mobile-bottom-nav";
+import { GuestBanner } from "@/components/guest-banner";
+import { Toaster } from "sonner";
 
-const inter = Inter({
-  variable: "--font-inter",
+const geistMono = Geist_Mono({
+  variable: "--font-sans",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Nextjs with convex",
-  description: "First template by Podalls",
+  title: "Gami",
+  description: "Play. Earn. Show off.",
 };
 
 export default function RootLayout({
@@ -22,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} h-svh w-full overflow-hidden bg-background antialiased`}
+        className={`${geistMono.variable} min-h-svh w-full bg-background antialiased`}
       >
         <ThemeProvider
           attribute="class"
@@ -31,11 +37,16 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <ConvexClientProvider>
-            <div className="flex flex-col h-full w-full">
-              <main className="grow flex flex-col overflow-hidden">
+            <HeartbeatProvider>
+              <GuestBanner />
+              <AppNav />
+              <MobileNav />
+              <main className="pt-16 md:pt-16 [@media(max-width:767px)]:pt-[104px] pb-16 md:pb-0">
                 {children}
               </main>
-            </div>
+              <MobileBottomNav />
+              <Toaster richColors position="top-center" />
+            </HeartbeatProvider>
           </ConvexClientProvider>
         </ThemeProvider>
       </body>
