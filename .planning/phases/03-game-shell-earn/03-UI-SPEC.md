@@ -1,7 +1,7 @@
 ---
 phase: 03
 phase_name: game-shell-earn
-status: draft
+status: approved
 created: 2026-05-01
 tool: manual (Radix UI + Tailwind CSS v4 — no shadcn components.json)
 ---
@@ -200,7 +200,7 @@ Triggered by: keyboard ESC key (`keydown` listener on `window`) OR tap of Floati
 ```
 
 - Panel centering: `absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2`
-- Panel: `bg-background rounded-2xl border border-border shadow-xl p-6 flex flex-col gap-3`
+- Panel: `bg-background rounded-2xl border border-border shadow-xl p-6 flex flex-col gap-4`
 - Heading: `text-xl font-semibold tracking-tight text-center mb-2`
 - Each button: `w-full min-h-[44px]`
 - Entry animation: panel fades in from scale 95% → 100% + opacity 0 → 1, `duration-150 ease-out`
