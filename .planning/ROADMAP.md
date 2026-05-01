@@ -10,7 +10,7 @@
 ## Phases
 
 - [x] **Phase 1: Foundation** — Schema lock, auth UI with guest mode, coin ledger table
-- [ ] **Phase 2: Home + Presence** — V2 Refined home layout, real-time presence, nav coin balance
+- [x] **Phase 2: Home + Presence** — V2 Refined home layout, real-time presence, nav coin balance
 - [ ] **Phase 3: Game Shell + Earn** — iframe embedding, ESC overlay, coin earn via postMessage
 - [ ] **Phase 4: Cosmetics + Store + Profile** — Full earn-spend-equip loop
 - [ ] **Phase 5: Payments** — Stripe coin purchases, real-money economy
@@ -49,10 +49,10 @@
   3. The Multiplayer section shows a live presence panel with player online/in-game/idle status
   4. Idle status triggers client-side after 3 minutes of inactivity; a Convex cron marks stale rows offline after 5 minutes to handle tab crashes
 **Plans**: 4 plans
-- [ ] 02-01-PLAN.md — Convex backend: schema patch + coinLedger.getBalance + presence.getOnlinePlayers + crons.markStalePresence
-- [ ] 02-02-PLAN.md — Leaf components: HeartbeatProvider, CoinBalance, GameCard, FilterChips, /store placeholder
-- [ ] 02-03-PLAN.md — Nav assemblies: AppNav, MobileNav, MobileBottomNav, PresencePanel
-- [ ] 02-04-PLAN.md — Layout surgery + V2 Refined home page (Solo + Multiplayer + PresencePanel)
+- [x] 02-01-PLAN.md — Convex backend: schema patch + coinLedger.getBalance + presence.getOnlinePlayers + crons.markStalePresence
+- [x] 02-02-PLAN.md — Leaf components: HeartbeatProvider, CoinBalance, GameCard, FilterChips, /store placeholder
+- [x] 02-03-PLAN.md — Nav assemblies: AppNav, MobileNav, MobileBottomNav, PresencePanel
+- [x] 02-04-PLAN.md — Layout surgery + V2 Refined home page (Solo + Multiplayer + PresencePanel)
 **UI hint**: yes
 
 ---

@@ -1,7 +1,7 @@
 # Project State: Gami
 
 ## Status
-Active — Phase 2 ready to execute
+Active — Phase 2 complete, Phase 3 ready to discuss
 
 ## Project Reference
 See: .planning/PROJECT.md
@@ -13,25 +13,25 @@ See: .planning/PROJECT.md
 | Phase | Name | Status |
 |-------|------|--------|
 | 1 | Foundation | Complete |
-| 2 | Home + Presence | Ready to Execute |
+| 2 | Home + Presence | Complete |
 | 3 | Game Shell + Earn | Not Started |
 | 4 | Cosmetics + Store + Profile | Not Started |
 | 5 | Payments | Not Started |
 
 ## Current Position
-- **Phase:** 1
-- **Plan:** 4 of 4 complete (Wave 2: plans 03 and 04 done — Phase 1 complete)
-- **Status:** Phase 1 complete — ready to start Phase 2
-- **Progress:** 1/5 phases complete
+- **Phase:** 3
+- **Plan:** 0 of ? (Phase 3 not yet planned)
+- **Status:** Phase 2 complete — ready to discuss/plan Phase 3
+- **Progress:** 2/5 phases complete
 
 ```
-[==        ] 20%
+[====      ] 40%
 ```
 
 ## Performance Metrics
-- Plans completed: 4
-- Requirements delivered: 9/30 (AUTH-01, AUTH-02, AUTH-03, AUTH-04 + schema + UI primitives + proxy hardening + home placeholder)
-- Phases completed: 1/5
+- Plans completed: 8
+- Requirements delivered: 16/30 (AUTH-01..04 + schema + UI primitives + proxy hardening + home placeholder + HOME-01..04 + PRES-02 + PRES-03 + ECON-04)
+- Phases completed: 2/5
 
 ## Accumulated Context
 
@@ -68,8 +68,8 @@ See: .planning/PROJECT.md
 None — Phase 1 complete, ready to start Phase 2
 
 ## Session Continuity
-- Last action: Phase 2 planned — 4 plans in 4 waves, verification passed
-- Next action: Execute Phase 2 — `/gsd-execute-phase 2`
+- Last action: Phase 2 complete — UAT passed (9/10, 1 cosmetic fix shipped)
+- Next action: Discuss/plan Phase 3 — `/gsd-discuss-phase 3`
 
 ## Last Updated
-2026-05-01 — Phase 2 planning complete
+2026-05-01 — Phase 2 complete
