@@ -11,7 +11,7 @@
 
 - [x] **Phase 1: Foundation** — Schema lock, auth UI with guest mode, coin ledger table
 - [x] **Phase 2: Home + Presence** — V2 Refined home layout, real-time presence, nav coin balance
-- [ ] **Phase 3: Game Shell + Earn** — iframe embedding, ESC overlay, coin earn via postMessage
+- [x] **Phase 3: Game Shell + Earn** — iframe embedding, ESC overlay, coin earn via postMessage
 - [ ] **Phase 4: Cosmetics + Store + Profile** — Full earn-spend-equip loop
 - [ ] **Phase 5: Payments** — Stripe coin purchases, real-money economy
 
@@ -70,7 +70,7 @@
 - [x] 03-01-PLAN.md — Convex backend: gameCatalog table + list/getBySlug queries + games.ts session mutations + awardSessionCoins internalMutation + seed
 - [x] 03-02-PLAN.md — Home page wiring: GameCard extends with slug/thumbnailUrl/Link; page.tsx → client component with useQuery(gameCatalog.list)
 - [x] 03-03-PLAN.md — Game shell route: /play/[slug] page + GameIframe + EscOverlay + FloatingPauseButton + postMessage handler
-- [ ] 03-04-PLAN.md — RewardScreen component + wire into GameShell (replaces inline stub)
+- [x] 03-04-PLAN.md — RewardScreen component + wire into GameShell (replaces inline stub)
 **UI hint**: yes
 
 ---
@@ -111,7 +111,7 @@
 |-------|----------------|--------|-----------|
 | 1. Foundation | 4/4 | Complete | 2026-04-26 |
 | 2. Home + Presence | 4/4 | Complete | 2026-04-30 |
-| 3. Game Shell + Earn | 3/4 | In Progress | - |
+| 3. Game Shell + Earn | 4/4 | Complete | 2026-05-02 |
 | 4. Cosmetics + Store + Profile | 0/? | Not started | - |
 | 5. Payments | 0/? | Not started | - |
 
