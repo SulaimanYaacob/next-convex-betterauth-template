@@ -66,7 +66,11 @@
   2. Pressing ESC (or tapping pause on mobile) opens an overlay with Resume, Settings, and Back to Lobby; the game canvas fills the viewport on mobile
   3. When a game session ends, the platform receives a GAME_OVER postMessage, validates the origin, derives coin award server-side (score-based formula, per-session cap), and credits the player's ledger via internalMutation — the client never supplies a coin amount
   4. A post-game reward screen shows coins earned this session and the updated total balance
-**Plans**: TBD
+**Plans**: 4 plans
+- [x] 03-01-PLAN.md — Convex backend: gameCatalog table + list/getBySlug queries + games.ts session mutations + awardSessionCoins internalMutation + seed
+- [ ] 03-02-PLAN.md — Home page wiring: GameCard extends with slug/thumbnailUrl/Link; page.tsx → client component with useQuery(gameCatalog.list)
+- [ ] 03-03-PLAN.md — Game shell route: /play/[slug] page + GameIframe + EscOverlay + FloatingPauseButton + postMessage handler
+- [ ] 03-04-PLAN.md — RewardScreen component + wire into GameShell (replaces inline stub)
 **UI hint**: yes
 
 ---
@@ -106,8 +110,8 @@
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 4/4 | Complete | 2026-04-26 |
-| 2. Home + Presence | 0/4 | Planned | - |
-| 3. Game Shell + Earn | 0/? | Not started | - |
+| 2. Home + Presence | 4/4 | Complete | 2026-04-30 |
+| 3. Game Shell + Earn | 1/4 | In Progress | - |
 | 4. Cosmetics + Store + Profile | 0/? | Not started | - |
 | 5. Payments | 0/? | Not started | - |
 
