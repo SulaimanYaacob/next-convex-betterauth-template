@@ -87,4 +87,16 @@ export default defineSchema({
   })
     .index("by_userId", ["userId"])
     .index("by_userId_and_gameId", ["userId", "gameId"]),
+
+  // Phase 3 — game catalog (separate from session-log `games` table — D-04)
+  gameCatalog: defineTable({
+    slug: v.string(),
+    name: v.string(),
+    iframeUrl: v.string(),
+    isMultiplayer: v.boolean(),
+    thumbnailUrl: v.optional(v.string()),
+    genre: v.string(),
+  })
+    .index("by_slug", ["slug"])
+    .index("by_isMultiplayer", ["isMultiplayer"]),
 });
