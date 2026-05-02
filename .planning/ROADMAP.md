@@ -68,7 +68,7 @@
   4. A post-game reward screen shows coins earned this session and the updated total balance
 **Plans**: 4 plans
 - [x] 03-01-PLAN.md — Convex backend: gameCatalog table + list/getBySlug queries + games.ts session mutations + awardSessionCoins internalMutation + seed
-- [ ] 03-02-PLAN.md — Home page wiring: GameCard extends with slug/thumbnailUrl/Link; page.tsx → client component with useQuery(gameCatalog.list)
+- [x] 03-02-PLAN.md — Home page wiring: GameCard extends with slug/thumbnailUrl/Link; page.tsx → client component with useQuery(gameCatalog.list)
 - [ ] 03-03-PLAN.md — Game shell route: /play/[slug] page + GameIframe + EscOverlay + FloatingPauseButton + postMessage handler
 - [ ] 03-04-PLAN.md — RewardScreen component + wire into GameShell (replaces inline stub)
 **UI hint**: yes
@@ -111,7 +111,7 @@
 |-------|----------------|--------|-----------|
 | 1. Foundation | 4/4 | Complete | 2026-04-26 |
 | 2. Home + Presence | 4/4 | Complete | 2026-04-30 |
-| 3. Game Shell + Earn | 1/4 | In Progress | - |
+| 3. Game Shell + Earn | 2/4 | In Progress | - |
 | 4. Cosmetics + Store + Profile | 0/? | Not started | - |
 | 5. Payments | 0/? | Not started | - |
 

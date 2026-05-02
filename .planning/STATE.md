@@ -20,8 +20,8 @@ See: .planning/PROJECT.md
 
 ## Current Position
 - **Phase:** 3
-- **Plan:** 1 of 4 complete
-- **Status:** Phase 3 in progress — 03-01 complete, 03-02 next
+- **Plan:** 2 of 4 complete
+- **Status:** Phase 3 in progress — 03-02 complete, 03-03 next
 - **Progress:** 2/5 phases complete (Phase 3 in progress)
 
 ```
@@ -29,8 +29,8 @@ See: .planning/PROJECT.md
 ```
 
 ## Performance Metrics
-- Plans completed: 9
-- Requirements delivered: 19/30 (AUTH-01..04 + schema + UI primitives + proxy hardening + home placeholder + HOME-01..04 + PRES-02 + PRES-03 + ECON-04 + GAME-01 + GAME-03 + ECON-02)
+- Plans completed: 10
+- Requirements delivered: 20/30 (AUTH-01..04 + schema + UI primitives + proxy hardening + home placeholder + HOME-01..04 + PRES-02 + PRES-03 + ECON-04 + GAME-01 + GAME-02 + GAME-03 + ECON-02)
 - Phases completed: 2/5
 
 ## Accumulated Context
@@ -68,8 +68,8 @@ See: .planning/PROJECT.md
 None
 
 ## Session Continuity
-- Last action: Executed 03-01-PLAN.md — gameCatalog schema + queries + games session mutations + awardSessionCoins internalMutation
-- Next action: Execute 03-02-PLAN.md — Home page wiring: GameCard with slug/Link + gameCatalog.list
+- Last action: Executed 03-02-PLAN.md — GameCard extended with slug/Link/thumbnailUrl; home page wired to live api.gameCatalog.list
+- Next action: Execute 03-03-PLAN.md — Game shell iframe page with ESC overlay and floating pause button
 
 ## Last Updated
-2026-05-02 — 03-01 complete
+2026-05-02 — 03-02 complete

@@ -248,3 +248,21 @@
 | 08:48 | Edited .planning/ROADMAP.md | inline fix | ~41 |
 | 08:48 | Edited .planning/ROADMAP.md | 2→2 lines | ~27 |
 | 08:48 | Executed 03-01-PLAN.md: added gameCatalog table to schema, created convex/gameCatalog.ts (list/getBySlug/seed) and convex/games.ts (startSession/updateScore/endSession/awardSessionCoins internalMutation), updated api.d.ts | convex/schema.ts, convex/gameCatalog.ts, convex/games.ts, convex/_generated/api.d.ts | All TypeScript clean, 3 commits | ~3500 |
+| 08:49 | Created src/components/game-card.tsx | — | ~379 |
+| 08:50 | Created src/app/page.tsx | — | ~917 |
+| 08:50 | Edited next.config.ts | modified Example() | ~105 |
+| 08:50 | Created src/components/esc-overlay.tsx | — | ~615 |
+| 08:50 | Created src/components/floating-pause-button.tsx | — | ~160 |
+| 08:50 | Created src/components/game-iframe.tsx | — | ~588 |
+| 08:51 | Edited src/components/game-iframe.tsx | inline fix | ~12 |
+| 08:51 | Edited src/components/game-iframe.tsx | removed 4 lines | ~3 |
+| 08:51 | Created .planning/phases/03-game-shell-earn/03-02-SUMMARY.md | — | ~1376 |
+| 08:51 | Created src/app/play/[slug]/page.tsx | — | ~2045 |
+| 08:51 | Edited .planning/STATE.md | 5→5 lines | ~49 |
+| 08:52 | Edited .planning/STATE.md | 2→2 lines | ~57 |
+| 08:52 | Edited src/app/play/[slug]/page.tsx | 5→5 lines | ~73 |
+| 08:52 | Edited .planning/STATE.md | 5→5 lines | ~75 |
+| 08:52 | Edited .planning/ROADMAP.md | inline fix | ~39 |
+| 08:52 | Edited .planning/ROADMAP.md | inline fix | ~13 |
+
+| 00:50 | 03-02: Extended GameCard (slug, Link, next/image); wired home page to api.gameCatalog.list; removed hardcoded arrays | src/components/game-card.tsx, src/app/page.tsx, next.config.ts | 3 commits, tsc clean | ~800 |
