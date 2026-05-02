@@ -26,13 +26,14 @@ const nextConfig: NextConfig = {
         port: "",
         pathname: "/**", // Allows any path under this hostname
       }
-      // You can add other hostnames here if needed
-      // Example:
+      // T-03-11: When real game thumbnailUrls are added to gameCatalog records,
+      // add the hosting domain(s) here before next/image will render them.
+      // Example (replace with actual CDN hostname):
       // {
       //   protocol: 'https',
-      //   hostname: 'another-image-provider.com',
+      //   hostname: 'cdn.example.com',
       //   port: '',
-      //   pathname: '/**',
+      //   pathname: '/game-thumbnails/**',
       // },
     ],
   },
