@@ -3,6 +3,16 @@
 > Chronological action log. Hooks and AI append to this file automatically.
 > Old sessions are consolidated by the daemon weekly.
 
+## Session: 2026-05-02 (03-03 execution)
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 08:55 | Created EscOverlay using Radix DialogPrimitive | src/components/esc-overlay.tsx | Created, TS clean | ~800 |
+| 08:56 | Created FloatingPauseButton (44px, md:hidden) | src/components/floating-pause-button.tsx | Created, TS clean | ~200 |
+| 08:58 | Created GameIframe with SESSION_INIT postMessage | src/components/game-iframe.tsx | Created, TS clean | ~500 |
+| 09:00 | Created GameShell page /play/[slug] | src/app/play/[slug]/page.tsx | Created, fixed import depth (3→4 levels), TS clean | ~1200 |
+| 09:05 | Created 03-03-SUMMARY.md, updated STATE + ROADMAP | .planning/ | Committed c8eaa65 | ~400 |
+
 ## Session: 2026-04-30 23:48
 
 | Time | Action | File(s) | Outcome | ~Tokens |
@@ -266,3 +276,9 @@
 | 08:52 | Edited .planning/ROADMAP.md | inline fix | ~13 |
 
 | 00:50 | 03-02: Extended GameCard (slug, Link, next/image); wired home page to api.gameCatalog.list; removed hardcoded arrays | src/components/game-card.tsx, src/app/page.tsx, next.config.ts | 3 commits, tsc clean | ~800 |
+| 08:53 | Created .planning/phases/03-game-shell-earn/03-03-SUMMARY.md | — | ~1466 |
+| 08:53 | Edited .planning/phases/03-game-shell-earn/03-03-SUMMARY.md | expanded (+10 lines) | ~108 |
+| 08:53 | Edited .planning/STATE.md | 9→9 lines | ~56 |
+| 08:53 | Edited .planning/STATE.md | 5→5 lines | ~81 |
+| 08:54 | Edited .planning/ROADMAP.md | inline fix | ~34 |
+| 08:54 | Edited .planning/ROADMAP.md | inline fix | ~13 |

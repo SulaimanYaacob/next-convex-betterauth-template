@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-02T00:48:19.220Z
-> Files: 171 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-02T00:54:07.925Z
+> Files: 177 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
@@ -14,7 +14,7 @@
 - `eslint.config.mjs` — ESLint flat configuration (~394 tok)
 - `LICENSE` — Project license (~290 tok)
 - `next-env.d.ts` — / <reference types="next" /> (~74 tok)
-- `next.config.ts` — Next.js configuration (~463 tok)
+- `next.config.ts` — ", // Allows any path under this hostname (~505 tok)
 - `nextjs-devtools-mcp.md` — Next.js DevTools MCP (~3231 tok)
 - `package.json` — Node.js package manifest (~474 tok)
 - `pnpm-lock.yaml` — pnpm lock file (~71320 tok)
@@ -122,7 +122,7 @@
 - `PROJECT.md` — Gami (~1101 tok)
 - `REQUIREMENTS.md` — Requirements: Gami (~1697 tok)
 - `ROADMAP.md` — Roadmap: Gami (~2038 tok)
-- `STATE.md` — Project State: Gami (~900 tok)
+- `STATE.md` — Project State: Gami (~910 tok)
 
 ## .planning/phases/01-foundation/
 
@@ -166,7 +166,9 @@
 - `03-01-PLAN.md` — Declares authUser (~4437 tok)
 - `03-01-SUMMARY.md` — Phase 3 Plan 01: Convex Backend Surface Summary (~1443 tok)
 - `03-02-PLAN.md` — Trust Boundaries (~3549 tok)
+- `03-02-SUMMARY.md` — Phase 3 Plan 02: Home Page Wired to Live Convex gameCatalog Summary (~1290 tok)
 - `03-03-PLAN.md` — updatePresence: pattern, FloatingPauseButton (~7266 tok)
+- `03-03-SUMMARY.md` — Phase 3 Plan 03: Game Shell Summary (~1471 tok)
 - `03-04-PLAN.md` — RewardScreenProps: RewardScreen, handleBackToHome (~4337 tok)
 - `03-CONTEXT.md` — Phase 3: Game Shell + Earn - Context (~2213 tok)
 - `03-DISCUSSION-LOG.md` — Phase 3: Game Shell + Earn - Discussion Log (~1597 tok)
@@ -234,7 +236,7 @@
 - `ConvexClientProvider.tsx` — convex (~159 tok)
 - `globals.css` — Styles: 6 rules, 167 vars, 1 layers (~2235 tok)
 - `layout.tsx` — geistMono (~485 tok)
-- `page.tsx` — SOLO_GAMES (~490 tok)
+- `page.tsx` — GameCardSkeleton (~917 tok)
 
 ## src/app/(unauth)/
 
@@ -252,6 +254,10 @@
 
 - `route.ts` — Next.js API route (~80 tok)
 
+## src/app/play/[slug]/
+
+- `page.tsx` — ALLOWED_ORIGINS (~2047 tok)
+
 ## src/app/store/
 
 - `page.tsx` — StorePage (~100 tok)
@@ -260,9 +266,12 @@
 
 - `app-nav.tsx` — AppNav (~978 tok)
 - `coin-balance.tsx` — CoinBalance (~315 tok)
+- `esc-overlay.tsx` — EscOverlay — renders modal (~615 tok)
 - `filter-chips.tsx` — CHIPS (~311 tok)
+- `floating-pause-button.tsx` — FloatingPauseButton (~160 tok)
 - `footer.tsx` — Footer (~317 tok)
-- `game-card.tsx` — GameCard (~207 tok)
+- `game-card.tsx` — GameCard (~379 tok)
+- `game-iframe.tsx` — GameIframe (~555 tok)
 - `gami-logo.tsx` — sizeMap (~322 tok)
 - `guest-banner.tsx` — DISMISS_KEY — uses useState, useEffect (~716 tok)
 - `heartbeat-provider.tsx` — HEARTBEAT_INTERVAL_MS (~592 tok)
