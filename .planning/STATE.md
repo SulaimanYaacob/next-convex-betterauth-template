@@ -20,8 +20,8 @@ See: .planning/PROJECT.md
 
 ## Current Position
 - **Phase:** 3
-- **Plan:** 2 of 4 complete
-- **Status:** Phase 3 in progress — 03-02 complete, 03-03 next
+- **Plan:** 3 of 4 complete
+- **Status:** Phase 3 in progress — 03-03 complete, 03-04 next
 - **Progress:** 2/5 phases complete (Phase 3 in progress)
 
 ```
@@ -68,8 +68,8 @@ See: .planning/PROJECT.md
 None
 
 ## Session Continuity
-- Last action: Executed 03-02-PLAN.md — GameCard extended with slug/Link/thumbnailUrl; home page wired to live api.gameCatalog.list
-- Next action: Execute 03-03-PLAN.md — Game shell iframe page with ESC overlay and floating pause button
+- Last action: Executed 03-03-PLAN.md — GameShell /play/[slug] page, GameIframe, EscOverlay, FloatingPauseButton; postMessage contract + scroll lock implemented
+- Next action: Execute 03-04-PLAN.md — RewardScreen component (replaces inline stub in GameShell)
 
 ## Last Updated
-2026-05-02 — 03-02 complete
+2026-05-02 — 03-03 complete
