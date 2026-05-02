@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-01T06:33:04.081Z
-> Files: 159 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-02T00:48:19.220Z
+> Files: 171 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
@@ -121,8 +121,8 @@
 - `config.json` (~80 tok)
 - `PROJECT.md` — Gami (~1101 tok)
 - `REQUIREMENTS.md` — Requirements: Gami (~1697 tok)
-- `ROADMAP.md` — Roadmap: Gami (~1905 tok)
-- `STATE.md` — Project State: Gami (~881 tok)
+- `ROADMAP.md` — Roadmap: Gami (~2038 tok)
+- `STATE.md` — Project State: Gami (~900 tok)
 
 ## .planning/phases/01-foundation/
 
@@ -161,6 +161,19 @@
 - `02-UAT.md` — Current Test (~943 tok)
 - `02-UI-SPEC.md` — UI-SPEC: Phase 02 — Home + Presence (~5207 tok)
 
+## .planning/phases/03-game-shell-earn/
+
+- `03-01-PLAN.md` — Declares authUser (~4437 tok)
+- `03-01-SUMMARY.md` — Phase 3 Plan 01: Convex Backend Surface Summary (~1443 tok)
+- `03-02-PLAN.md` — Trust Boundaries (~3549 tok)
+- `03-03-PLAN.md` — updatePresence: pattern, FloatingPauseButton (~7266 tok)
+- `03-04-PLAN.md` — RewardScreenProps: RewardScreen, handleBackToHome (~4337 tok)
+- `03-CONTEXT.md` — Phase 3: Game Shell + Earn - Context (~2213 tok)
+- `03-DISCUSSION-LOG.md` — Phase 3: Game Shell + Earn - Discussion Log (~1597 tok)
+- `03-PATTERNS.md` — Phase 3: Game Shell + Earn - Pattern Map (~6037 tok)
+- `03-RESEARCH.md` — Phase 3: Game Shell + Earn - Research (~10923 tok)
+- `03-UI-SPEC.md` — UI-SPEC: Phase 03 — Game Shell + Earn (~6088 tok)
+
 ## .planning/research/
 
 - `ARCHITECTURE.md` — Architecture Research: Gami (~5154 tok)
@@ -177,18 +190,20 @@
 - `convex.config.ts` — Declares app (~74 tok)
 - `crons.ts` — PRES-03: every 1 minute, mark presence rows with lastSeen > 5 min ago as "offline". (~284 tok)
 - `email.tsx` — resend (~546 tok)
+- `gameCatalog.ts` — GAME-01: returns all catalog records, bounded to 100 (never .collect()) (~416 tok)
+- `games.ts` — GAME-01: create a new game session row and return its Id (~1020 tok)
 - `http.ts` — Declares http (~80 tok)
 - `polyfills.ts` — polyfill MessageChannel without using node:events (~266 tok)
 - `presence.ts` — PRES-01: heartbeat mutation. Phase 1 ships the table + mutation; (~666 tok)
 - `README.md` — Project documentation (~648 tok)
-- `schema.ts` (~834 tok)
+- `schema.ts` (~941 tok)
 - `tsconfig.json` — TypeScript configuration (~238 tok)
 - `users.ts` — Idempotent — anonymous-to-account conversion fires create.after twice (~766 tok)
 - `util.ts` — Exports requireEnv, vv (~94 tok)
 
 ## convex/_generated/
 
-- `api.d.ts` — Generated `api` utility. (~593 tok)
+- `api.d.ts` — Generated `api` utility. (~681 tok)
 - `api.js` — Generated `api` utility. (~138 tok)
 - `dataModel.d.ts` — Generated data model types. (~496 tok)
 - `server.d.ts` — Generated utilities for implementing server-side Convex query and mutation functions. (~1600 tok)

@@ -176,3 +176,75 @@
 | 19:19 | Edited .planning/phases/03-game-shell-earn/03-UI-SPEC.md | inline fix | ~5 |
 | 19:26 | Created .planning/phases/03-game-shell-earn/03-RESEARCH.md | — | ~11651 |
 | 19:27 | Phase 3 research complete — gameCatalog schema, postMessage contract, awardSessionCoins pattern, 7 pitfalls documented | .planning/phases/03-game-shell-earn/03-RESEARCH.md | created | ~6500 tok |
+| 19:30 | Created .planning/phases/03-game-shell-earn/03-PATTERNS.md | — | ~6439 |
+| 19:33 | Created .planning/phases/03-game-shell-earn/03-01-PLAN.md | — | ~4733 |
+| 19:34 | Created .planning/phases/03-game-shell-earn/03-02-PLAN.md | — | ~3786 |
+| 19:37 | Created .planning/phases/03-game-shell-earn/03-03-PLAN.md | — | ~7750 |
+| 19:38 | Created .planning/phases/03-game-shell-earn/03-04-PLAN.md | — | ~4626 |
+| 19:39 | Created .planning/ROADMAP.md | — | ~2170 |
+
+## Session: 2026-05-01 19:46
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-01 20:34
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-01 20:34
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-01 23:25
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-01 23:25
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-01 23:25
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-02 08:09
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-02 08:09
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 08:38 | Edited .planning/STATE.md | 2→2 lines | ~17 |
+| 08:38 | Edited .planning/STATE.md | 3→3 lines | ~27 |
+| 08:38 | Edited .planning/STATE.md | 5→5 lines | ~46 |
+| 08:38 | Session end: 3 writes across 1 files (STATE.md) | 12 reads | ~43537 tok |
+
+## Session: 2026-05-02 08:41
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-02 08:44
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 08:44 | Edited convex/schema.ts | expanded (+12 lines) | ~216 |
+| 08:45 | Created convex/gameCatalog.ts | — | ~416 |
+| 08:45 | Created convex/games.ts | — | ~1020 |
+| 08:46 | Edited convex/_generated/api.d.ts | added 2 import(s) | ~232 |
+| 08:46 | Edited convex/_generated/api.d.ts | 15→17 lines | ~162 |
+| 08:47 | Created .planning/phases/03-game-shell-earn/03-01-SUMMARY.md | — | ~1539 |
+| 08:47 | Edited .planning/STATE.md | 9→9 lines | ~56 |
+| 08:47 | Edited .planning/STATE.md | 4→4 lines | ~67 |
+| 08:48 | Edited .planning/STATE.md | 6→6 lines | ~80 |
+| 08:48 | Edited .planning/ROADMAP.md | inline fix | ~41 |
+| 08:48 | Edited .planning/ROADMAP.md | 2→2 lines | ~27 |
+| 08:48 | Executed 03-01-PLAN.md: added gameCatalog table to schema, created convex/gameCatalog.ts (list/getBySlug/seed) and convex/games.ts (startSession/updateScore/endSession/awardSessionCoins internalMutation), updated api.d.ts | convex/schema.ts, convex/gameCatalog.ts, convex/games.ts, convex/_generated/api.d.ts | All TypeScript clean, 3 commits | ~3500 |
