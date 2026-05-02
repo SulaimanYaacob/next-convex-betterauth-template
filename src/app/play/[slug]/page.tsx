@@ -10,6 +10,7 @@ import { Id } from "../../../../convex/_generated/dataModel";
 import { GameIframe } from "@/components/game-iframe";
 import { EscOverlay } from "@/components/esc-overlay";
 import { FloatingPauseButton } from "@/components/floating-pause-button";
+import { RewardScreen } from "@/components/reward-screen";
 
 // Parse ALLOWED_ORIGINS once at module level — stable across renders, no React Compiler issue
 const ALLOWED_ORIGINS = new Set(
@@ -170,28 +171,11 @@ export default function GameShell() {
 
       <FloatingPauseButton onPause={() => setEscOpen(true)} />
 
-      {/* RewardScreen stub — replaced in Plan 04 */}
-      {rewardOpen && (
-        <div className="fixed inset-0 z-60 bg-black/90 flex items-center justify-center">
-          <div className="bg-background rounded-2xl border border-border shadow-2xl p-8 text-center w-80 max-w-[calc(100vw-32px)] flex flex-col items-center gap-4 animate-in fade-in zoom-in-95 duration-200">
-            <p className="text-sm text-muted-foreground uppercase tracking-wider">Game Over</p>
-            <p className="text-5xl font-semibold tabular-nums">
-              <span className="text-primary">⟟</span>{" "}
-              <span className="text-foreground">{rewardCoins}</span>
-            </p>
-            <button
-              type="button"
-              className="w-full min-h-[44px] bg-primary text-primary-foreground rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
-              onClick={() => {
-                void updatePresence({ status: "online" });
-                router.push("/");
-              }}
-            >
-              Back to Home
-            </button>
-          </div>
-        </div>
-      )}
+      <RewardScreen
+        open={rewardOpen}
+        earned={rewardCoins}
+        onClose={() => setRewardOpen(false)}
+      />
     </main>
   );
 }
