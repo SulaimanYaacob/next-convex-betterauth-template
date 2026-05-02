@@ -187,4 +187,13 @@
     @apply bg-background text-foreground;
     letter-spacing: var(--tracking-normal);
   }
+
+  html[data-cursor-skin] *,
+  html[data-cursor-skin] button,
+  html[data-cursor-skin] a,
+  html[data-cursor-skin] input,
+  html[data-cursor-skin] textarea,
+  html[data-cursor-skin] select {
+    cursor: inherit;
+  }
 }

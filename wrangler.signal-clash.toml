@@ -1,0 +1,11 @@
+name = "gami-signal-clash"
+main = "workers/signal-clash-room.mjs"
+compatibility_date = "2026-05-02"
+
+[[durable_objects.bindings]]
+name = "SIGNAL_CLASH_ROOM"
+class_name = "SignalClashRoom"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["SignalClashRoom"]

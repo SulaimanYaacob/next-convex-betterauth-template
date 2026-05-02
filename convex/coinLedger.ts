@@ -1,5 +1,5 @@
 import { query } from "./_generated/server";
-import { betterAuthComponent } from "./auth";
+import { getAppUser, getCoinBalance } from "./authUsers";
 
 // ECON-04: returns the real-time coin balance for the authenticated user.
 // Balance = SUM of all coinLedger.amount rows for this user (append-only ledger).
@@ -8,20 +8,9 @@ import { betterAuthComponent } from "./auth";
 export const getBalance = query({
   args: {},
   handler: async (ctx): Promise<number | null> => {
-    const authUser = await betterAuthComponent.getAuthUser(ctx);
-    if (!authUser) return null;
-
-    const appUser = await ctx.db
-      .query("users")
-      .withIndex("by_email", (q) => q.eq("email", authUser.email))
-      .first();
+    const appUser = await getAppUser(ctx);
     if (!appUser) return null;
 
-    const rows = await ctx.db
-      .query("coinLedger")
-      .withIndex("by_userId", (q) => q.eq("userId", appUser._id))
-      .take(1000);
-
-    return rows.reduce((sum, row) => sum + row.amount, 0);
+    return await getCoinBalance(ctx, appUser._id);
   },
 });

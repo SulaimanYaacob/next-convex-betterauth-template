@@ -1,0 +1,26 @@
+[     121ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[     121ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[     293ms] [LOG] [Fast Refresh] done in 273ms @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[     293ms] [LOG] [Fast Refresh] done in 273ms @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[     477ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[     489ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[ 1104223ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[ 1104520ms] [LOG] [Fast Refresh] done in 399ms @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[ 1148909ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[ 1148913ms] [LOG] [Fast Refresh] done in 110ms @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[ 1149080ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[ 1149279ms] [LOG] [Fast Refresh] done in 310ms @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[ 1438139ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[ 1438266ms] [LOG] [Fast Refresh] done in 233ms @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[ 1438448ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[ 1438757ms] [LOG] [Fast Refresh] done in 412ms @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[ 1474879ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=Zorz4K-3lQpxtc0oTz32q' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/0_t._next_dist_client_0n37_~p._.js:13339
+[ 1478253ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=Zorz4K-3lQpxtc0oTz32q' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/0_t._next_dist_client_0n37_~p._.js:13339
+[ 1481619ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=Zorz4K-3lQpxtc0oTz32q' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/0_t._next_dist_client_0n37_~p._.js:13339
+[ 1484992ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=Zorz4K-3lQpxtc0oTz32q' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/0_t._next_dist_client_0n37_~p._.js:13339
+[ 1488364ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=Zorz4K-3lQpxtc0oTz32q' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/0_t._next_dist_client_0n37_~p._.js:13339
+[ 1495634ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[ 1496407ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[ 1496427ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[ 1496542ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[ 1496644ms] [LOG] [Fast Refresh] done in 206ms @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925

@@ -20,35 +20,54 @@ export const getBySlug = query({
   },
 });
 
-// GAME-03: seed the catalog with Pixel Rush and Mind Maze (idempotent)
-// Idempotency: check for "pixel-rush" before inserting either record
+// GAME-03: seed the local playable catalog idempotently.
 export const seed = internalMutation({
   args: {},
   handler: async (ctx) => {
-    const existing = await ctx.db
-      .query("gameCatalog")
-      .withIndex("by_slug", (q) => q.eq("slug", "pixel-rush"))
-      .unique();
+    const games = [
+      {
+        slug: "pixel-rush",
+        name: "Pixel Rush",
+        iframeUrl: "/games/pixel-rush",
+        isMultiplayer: false,
+        genre: "Arcade",
+        description:
+          "Collect bright cores, dodge sharp hazards, and survive the full run.",
+        skillSupport: "singleplayer",
+      },
+      {
+        slug: "mind-maze",
+        name: "Mind Maze",
+        iframeUrl: "/games/mind-maze",
+        isMultiplayer: false,
+        genre: "Puzzle",
+        description:
+          "Memorize each glowing route and repeat it as the sequence grows.",
+        skillSupport: "none",
+      },
+      {
+        slug: "duel-dash",
+        name: "Signal Clash",
+        iframeUrl: "/games/duel-dash",
+        isMultiplayer: true,
+        genre: "Online Versus",
+        description:
+          "Race online players to collect shared signals while dodging hazards.",
+        skillSupport: "multiplayer",
+      },
+    ] as const;
 
-    if (existing) {
-      // Already seeded — do nothing
-      return;
+    for (const game of games) {
+      const existing = await ctx.db
+        .query("gameCatalog")
+        .withIndex("by_slug", (q) => q.eq("slug", game.slug))
+        .unique();
+
+      if (existing) {
+        await ctx.db.patch(existing._id, game);
+      } else {
+        await ctx.db.insert("gameCatalog", game);
+      }
     }
-
-    await ctx.db.insert("gameCatalog", {
-      slug: "pixel-rush",
-      name: "Pixel Rush",
-      iframeUrl: "https://placeholder.game/pixel-rush",
-      isMultiplayer: false,
-      genre: "Arcade",
-    });
-
-    await ctx.db.insert("gameCatalog", {
-      slug: "mind-maze",
-      name: "Mind Maze",
-      iframeUrl: "https://placeholder.game/mind-maze",
-      isMultiplayer: false,
-      genre: "Puzzle",
-    });
   },
 });

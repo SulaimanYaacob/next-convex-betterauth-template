@@ -38,6 +38,10 @@ export default defineSchema({
     type: v.union(
       v.literal("cursor_skin"),
       v.literal("cursor_trail"),
+      v.literal("player_shape"),
+      v.literal("player_color"),
+      v.literal("player_effect"),
+      v.literal("skill"),
       v.literal("ui_theme"),
     ),
     price: v.number(),
@@ -68,6 +72,10 @@ export default defineSchema({
     slot: v.union(
       v.literal("cursor_skin"),
       v.literal("cursor_trail"),
+      v.literal("player_shape"),
+      v.literal("player_color"),
+      v.literal("player_effect"),
+      v.literal("skill_primary"),
       v.literal("ui_theme"),
     ),
     itemId: v.id("storeItems"),
@@ -96,7 +104,58 @@ export default defineSchema({
     isMultiplayer: v.boolean(),
     thumbnailUrl: v.optional(v.string()),
     genre: v.string(),
+    description: v.optional(v.string()),
+    skillSupport: v.optional(v.union(
+      v.literal("none"),
+      v.literal("singleplayer"),
+      v.literal("multiplayer"),
+    )),
   })
     .index("by_slug", ["slug"])
     .index("by_isMultiplayer", ["isMultiplayer"]),
+
+  duelDashRounds: defineTable({
+    roundKey: v.string(),
+    startedAt: v.number(),
+    endsAt: v.number(),
+    targetX: v.number(),
+    targetY: v.number(),
+    targetSize: v.number(),
+    targetValue: v.number(),
+    targetVersion: v.number(),
+    hazards: v.optional(v.array(
+      v.object({
+        id: v.string(),
+        x: v.number(),
+        y: v.number(),
+        r: v.number(),
+        vx: v.number(),
+        vy: v.number(),
+      }),
+    )),
+    updatedAt: v.number(),
+  })
+    .index("by_roundKey", ["roundKey"])
+    .index("by_endsAt", ["endsAt"]),
+
+  duelDashPlayers: defineTable({
+    roundId: v.id("duelDashRounds"),
+    userId: v.id("users"),
+    displayName: v.string(),
+    color: v.string(),
+    x: v.optional(v.number()),
+    y: v.optional(v.number()),
+    immobilizedUntil: v.optional(v.number()),
+    playerShape: v.optional(v.string()),
+    playerColor: v.optional(v.string()),
+    playerEffect: v.optional(v.string()),
+    score: v.number(),
+    streak: v.number(),
+    misses: v.number(),
+    joinedAt: v.number(),
+    lastSeen: v.number(),
+  })
+    .index("by_roundId", ["roundId"])
+    .index("by_roundId_and_userId", ["roundId", "userId"])
+    .index("by_userId", ["userId"]),
 });

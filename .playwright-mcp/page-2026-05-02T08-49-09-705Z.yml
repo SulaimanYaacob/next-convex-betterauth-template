@@ -1,0 +1,22 @@
+- generic [active] [ref=e1]:
+  - navigation "Primary" [ref=e2]:
+    - generic [ref=e3]:
+      - link "Gami home" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e5]:
+          - img [ref=e6]
+          - generic [ref=e9]: gami
+      - generic [ref=e10]:
+        - img
+        - searchbox "Search games" [ref=e11]
+      - generic [ref=e12]:
+        - link "Store" [ref=e13] [cursor=pointer]:
+          - /url: /store
+          - img [ref=e14]
+          - text: Store
+        - button "Open profile menu" [ref=e17]:
+          - generic [ref=e19]: U
+  - main [ref=e20]
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e28] [cursor=pointer]:
+    - img [ref=e29]

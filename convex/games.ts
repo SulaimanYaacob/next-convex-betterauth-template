@@ -1,21 +1,15 @@
 import { mutation, internalMutation } from "./_generated/server";
 import { v } from "convex/values";
-import { betterAuthComponent } from "./auth";
 import { internal } from "./_generated/api";
 import { requireEnv } from "./util";
 import { Id } from "./_generated/dataModel";
+import { getAppUser } from "./authUsers";
 
 // GAME-01: create a new game session row and return its Id
 export const startSession = mutation({
   args: { gameId: v.string() },
   handler: async (ctx, args): Promise<Id<"games"> | null> => {
-    const authUser = await betterAuthComponent.getAuthUser(ctx);
-    if (!authUser) return null;
-
-    const appUser = await ctx.db
-      .query("users")
-      .withIndex("by_email", (q) => q.eq("email", authUser.email))
-      .first();
+    const appUser = await getAppUser(ctx);
     if (!appUser) return null;
 
     return await ctx.db.insert("games", {
@@ -33,13 +27,7 @@ export const updateScore = mutation({
     score: v.number(),
   },
   handler: async (ctx, args) => {
-    const authUser = await betterAuthComponent.getAuthUser(ctx);
-    if (!authUser) return null;
-
-    const appUser = await ctx.db
-      .query("users")
-      .withIndex("by_email", (q) => q.eq("email", authUser.email))
-      .first();
+    const appUser = await getAppUser(ctx);
     if (!appUser) return null;
 
     const session = await ctx.db.get(args.gameSessionId);
@@ -58,13 +46,7 @@ export const endSession = mutation({
     score: v.number(),
   },
   handler: async (ctx, args) => {
-    const authUser = await betterAuthComponent.getAuthUser(ctx);
-    if (!authUser) return null;
-
-    const appUser = await ctx.db
-      .query("users")
-      .withIndex("by_email", (q) => q.eq("email", authUser.email))
-      .first();
+    const appUser = await getAppUser(ctx);
     if (!appUser) return null;
 
     const session = await ctx.db.get(args.gameSessionId);

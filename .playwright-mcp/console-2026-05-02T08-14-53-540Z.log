@@ -1,0 +1,12 @@
+[     651ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[     666ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[    2705ms] [WARNING] An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing. @ http://localhost:3000/games/pixel-rush:0
+[    2802ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[  102078ms] [WARNING] An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing. @ http://localhost:3000/games/duel-dash:0
+[  102209ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[  116069ms] [WARNING] Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}. @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[  116071ms] [WARNING] Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}. @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[  118879ms] [WARNING] An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing. @ http://localhost:3000/games/mind-maze:0
+[  119055ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[  173502ms] [WARNING] An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing. @ http://localhost:3000/games/pixel-rush:0
+[  173657ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925

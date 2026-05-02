@@ -176,6 +176,257 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-05-01T04:53:38.737Z"
+    },
+    {
+      "id": "bug-012",
+      "timestamp": "2026-05-01T11:19:45.911Z",
+      "error_message": "Incorrect value in code",
+      "file": ".planning/phases/03-game-shell-earn/03-UI-SPEC.md",
+      "root_cause": "Had `bg-background rounded-2xl border border-border sh",
+      "fix": "Changed to `bg-background rounded-2xl border border-border sh",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-01T11:19:45.911Z"
+    },
+    {
+      "id": "bug-013",
+      "timestamp": "2026-05-01T11:19:54.519Z",
+      "error_message": "Wrong reference: draft should be approved",
+      "file": ".planning/phases/03-game-shell-earn/03-UI-SPEC.md",
+      "root_cause": "Used \"draft\" instead of \"approved\"",
+      "fix": "Changed draft → approved",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-01T11:19:54.519Z"
+    },
+    {
+      "id": "bug-014",
+      "timestamp": "2026-05-02T00:48:07.787Z",
+      "error_message": "Significant refactor of ",
+      "file": ".planning/STATE.md",
+      "root_cause": "3 lines replaced/restructured",
+      "fix": "Rewrote 6→6 lines (3 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-02T00:48:07.787Z"
+    },
+    {
+      "id": "bug-015",
+      "timestamp": "2026-05-02T00:50:15.222Z",
+      "error_message": "Significant refactor of ",
+      "file": "next.config.ts",
+      "root_cause": "4 lines replaced/restructured",
+      "fix": "Rewrote 8→9 lines (4 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-02T00:50:15.222Z"
+    },
+    {
+      "id": "bug-016",
+      "timestamp": "2026-05-02T00:55:47.997Z",
+      "error_message": "Significant refactor of ",
+      "file": "src/app/play/[slug]/page.tsx",
+      "root_cause": "22 lines replaced/restructured",
+      "fix": "Rewrote 22→5 lines (22 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-02T00:55:47.997Z"
+    },
+    {
+      "id": "bug-017",
+      "timestamp": "2026-05-02T00:57:37.066Z",
+      "error_message": "Wrong reference: Not should be Complete",
+      "file": ".planning/STATE.md",
+      "root_cause": "Used \"Not\" instead of \"Complete\"",
+      "fix": "Changed Not → Complete",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-02T00:57:37.066Z"
+    },
+    {
+      "id": "bug-018",
+      "timestamp": "2026-05-02T15:54:14.8265567+08:00",
+      "error_message": "User reported Mind Maze is completely broken with no visible UI.",
+      "file": "src/app/games/mind-maze/page.tsx",
+      "root_cause": "Critical grid sizing classes were not taking effect in the iframe/dev CSS, collapsing the board into a narrow vertical line with low-contrast tiles.",
+      "fix": "Reworked Mind Maze into a Pixel Rush-style full-screen surface and used explicit inline grid sizing for the HUD and 4x4 board so tiles remain visible.",
+      "tags": [
+        "mind-maze",
+        "ui",
+        "responsive",
+        "tailwind",
+        "game"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-02T15:54:14.8265567+08:00"
+    },
+    {
+      "id": "bug-019",
+      "timestamp": "2026-05-02T16:00:21.8860557+08:00",
+      "error_message": "gsd-sdk command not found while running /gsd next",
+      "file": "GSD workflow environment",
+      "root_cause": "Local GSD SDK binary is not available on PATH in this shell.",
+      "fix": "Followed the file-based GSD workflow directly and recorded Phase 4 context/state manually.",
+      "tags": [
+        "gsd",
+        "workflow",
+        "tooling",
+        "path"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-02T16:00:21.8860557+08:00"
+    },
+    {
+      "id": "bug-020",
+      "timestamp": "2026-05-02T16:15:13.9523979+08:00",
+      "error_message": "pnpm lint failed before checking source files: Class extends value undefined is not a constructor or null",
+      "file": "eslint.config.mjs",
+      "root_cause": "The installed ESLint 10 / eslint-config-next 16 toolchain is incompatible with the transitive @typescript-eslint utility version in this install.",
+      "fix": "Used pnpm build for TypeScript and production validation; lint dependency alignment remains a tooling follow-up.",
+      "tags": [
+        "lint",
+        "eslint",
+        "tooling",
+        "next"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-05-02T16:52:00+08:00"
+    },
+    {
+      "id": "bug-021",
+      "timestamp": "2026-05-02T16:15:13.9523979+08:00",
+      "error_message": "pnpm dev:frontend -- --port 3010 failed with Invalid project directory provided: --port",
+      "file": "package.json",
+      "root_cause": "The dev:frontend script passes the separator through to next dev in this shell, causing Next to treat --port as a project directory.",
+      "fix": "Started the frontend with pnpm exec next dev -p 3000 instead.",
+      "tags": [
+        "dev-server",
+        "pnpm",
+        "next",
+        "tooling"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-02T16:15:13.9523979+08:00"
+    },
+    {
+      "id": "bug-022",
+      "timestamp": "2026-05-02T16:49:00+08:00",
+      "error_message": "User reported Signal Clash click-to-claim, solo starts, intrusive HUD, and timer-only stun made the multiplayer game feel wrong.",
+      "file": "src/app/games/duel-dash/page.tsx",
+      "root_cause": "The prototype used a Convex-style click claim loop and started without a real multiplayer readiness gate, so it did not match the Pixel Rush movement-first UX or the requested recovery interaction.",
+      "fix": "Reworked Signal Clash into a pointer-follow arena with contact collection, 2-player waiting room, countdown, compact edge HUD, recovery clicks while downed, and primary skill handling.",
+      "tags": [
+        "signal-clash",
+        "multiplayer",
+        "ux",
+        "skills",
+        "game"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-02T16:49:00+08:00"
+    },
+    {
+      "id": "bug-023",
+      "timestamp": "2026-05-02T16:49:00+08:00",
+      "error_message": "npx convex codegen initially failed because gameCatalog seed inferred skillSupport as string.",
+      "file": "convex/gameCatalog.ts",
+      "root_cause": "The seed array did not preserve literal types for the new skillSupport values.",
+      "fix": "Marked the seed catalog array as const so skillSupport remains the expected literal union.",
+      "tags": [
+        "convex",
+        "codegen",
+        "typescript",
+        "game-catalog"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-02T16:49:00+08:00"
+    },
+    {
+      "id": "bug-024",
+      "timestamp": "2026-05-02T17:00:35+08:00",
+      "error_message": "Playwright smoke saw one transient 500 from /api/auth/get-session while loading /play/duel-dash.",
+      "file": "src/app/games/duel-dash/page.tsx",
+      "root_cause": "The auth session request failed once in the existing dev server/browser context, then returned 200 on direct HTTP check and on a repeat browser navigation.",
+      "fix": "Retested /api/auth/get-session and /play/duel-dash; both passed on repeat, so no source change was needed for this transient auth API response.",
+      "tags": [
+        "auth",
+        "playwright",
+        "transient",
+        "smoke-test"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-02T17:00:35+08:00"
+    },
+    {
+      "id": "bug-025",
+      "timestamp": "2026-05-02T17:20:47+08:00",
+      "error_message": "Cloudflare deploy failed with code 10097: Free plan Durable Objects require a namespace using new_sqlite_classes migration.",
+      "file": "wrangler.signal-clash.toml",
+      "root_cause": "The Worker migration used new_classes, which creates a KV-backed Durable Object namespace. Cloudflare Workers Free only supports SQLite-backed Durable Object namespaces.",
+      "fix": "Changed the migration entry to new_sqlite_classes = [\"SignalClashRoom\"].",
+      "tags": [
+        "cloudflare",
+        "durable-objects",
+        "wrangler",
+        "deployment"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-02T17:20:47+08:00"
+    },
+    {
+      "id": "bug-026",
+      "timestamp": "2026-05-02T17:25:47+08:00",
+      "error_message": "PowerShell setup script failed before deployment: RandomNumberGenerator did not contain method Fill.",
+      "file": "Signal Clash deployment command",
+      "root_cause": "The installed PowerShell/.NET runtime does not expose the static RandomNumberGenerator.Fill API used in the first setup attempt.",
+      "fix": "Generated the shared secret with RandomNumberGenerator.Create().GetBytes(), then set Cloudflare and Convex secrets successfully.",
+      "tags": [
+        "powershell",
+        "deployment",
+        "crypto",
+        "signal-clash"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-02T17:25:47+08:00"
     }
   ]
 }

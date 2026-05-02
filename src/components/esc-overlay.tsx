@@ -6,22 +6,27 @@ import { Button } from "@/components/ui/button";
 interface EscOverlayProps {
   open: boolean;
   onResume: () => void;
-  onBackToLobby: () => void;
+  onQuit: () => void;
 }
 
-export function EscOverlay({ open, onResume, onBackToLobby }: EscOverlayProps) {
+export function EscOverlay({ open, onResume, onQuit }: EscOverlayProps) {
   return (
     <DialogPrimitive.Root open={open} onOpenChange={(o) => { if (!o) onResume(); }}>
       <DialogPrimitive.Portal>
         <DialogPrimitive.Overlay
-          className="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm
+          className="fixed inset-0 z-[90] bg-black/75 backdrop-blur-sm
                      data-[state=open]:animate-in data-[state=open]:fade-in-0
                      data-[state=closed]:animate-out data-[state=closed]:fade-out-0
                      duration-150"
         />
         <DialogPrimitive.Content
-          className="fixed top-1/2 left-1/2 z-50 -translate-x-1/2 -translate-y-1/2
-                     w-80 max-w-[calc(100vw-32px)] bg-background rounded-2xl
+          onEscapeKeyDown={(event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            onResume();
+          }}
+          className="fixed top-1/2 left-1/2 z-[100] -translate-x-1/2 -translate-y-1/2
+                     w-80 max-w-[calc(100vw-32px)] bg-background rounded-lg
                      border border-border shadow-xl p-6 flex flex-col gap-4
                      data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95
                      data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95
@@ -36,18 +41,10 @@ export function EscOverlay({ open, onResume, onBackToLobby }: EscOverlayProps) {
           </Button>
           <Button
             variant="outline"
-            className="w-full min-h-[44px] opacity-50 cursor-not-allowed"
-            disabled
-            aria-disabled="true"
-          >
-            Settings
-          </Button>
-          <Button
-            variant="ghost"
             className="w-full min-h-[44px] text-muted-foreground hover:text-foreground"
-            onClick={onBackToLobby}
+            onClick={onQuit}
           >
-            Back to Lobby
+            Quit to Lobby
           </Button>
         </DialogPrimitive.Content>
       </DialogPrimitive.Portal>

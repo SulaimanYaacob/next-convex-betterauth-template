@@ -3,6 +3,7 @@
 import { useQuery } from "convex/react";
 import { api } from "../../convex/_generated/api";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { EquippedMiniBadges } from "@/components/cosmetics/cosmetic-preview";
 
 const STATUS_COLORS: Record<"online" | "in-game", string> = {
   online: "#22c55e",
@@ -16,7 +17,7 @@ export function PresencePanel() {
   if (players === undefined) {
     return (
       <div
-        className="rounded-xl border border-border bg-background/60 p-4"
+        className="rounded-md border border-border bg-background/60 p-4"
         aria-label="Loading online players"
       >
         <p className="text-sm font-semibold mb-2">Online now</p>
@@ -35,7 +36,7 @@ export function PresencePanel() {
   // Empty state
   if (players.length === 0) {
     return (
-      <div className="rounded-xl border border-border bg-background/60 p-4">
+      <div className="rounded-md border border-border bg-background/60 p-4">
         <p className="text-sm font-semibold mb-2">Online now</p>
         <p className="text-sm text-muted-foreground text-center py-4">
           No players online right now
@@ -46,7 +47,7 @@ export function PresencePanel() {
 
   // Populated
   return (
-    <div className="rounded-xl border border-border bg-background/60 p-4">
+    <div className="rounded-md border border-border bg-background/60 p-4">
       <p className="text-sm font-semibold mb-2">Online now</p>
       <div
         role="list"
@@ -74,6 +75,7 @@ export function PresencePanel() {
             <span className="text-xs text-muted-foreground truncate w-full text-center">
               {player.name}
             </span>
+            <EquippedMiniBadges equipped={player.cosmetics} />
           </div>
         ))}
       </div>

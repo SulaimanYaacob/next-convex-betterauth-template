@@ -12,7 +12,7 @@ export function FloatingPauseButton({ onPause }: FloatingPauseButtonProps) {
       type="button"
       onClick={onPause}
       aria-label="Pause game"
-      className="md:hidden fixed bottom-6 right-4 z-40 flex items-center justify-center size-11 rounded-full bg-black/40 backdrop-blur-sm hover:bg-black/60 transition-colors"
+      className="fixed bottom-6 right-4 z-[80] flex size-11 items-center justify-center rounded-full bg-black/45 backdrop-blur-sm transition-colors hover:bg-black/65"
     >
       <Pause className="size-5 text-white" aria-hidden="true" />
     </button>

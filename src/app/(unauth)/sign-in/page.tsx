@@ -115,6 +115,7 @@ export default function SignInPage() {
                         autoComplete="email"
                         autoFocus
                         aria-label="Email address"
+                        className="border-slate-300 bg-white text-slate-950 placeholder:text-slate-500 focus-visible:border-[#e68445] focus-visible:ring-[#e68445]/25"
                         {...field}
                       />
                     </FormControl>
@@ -134,6 +135,7 @@ export default function SignInPage() {
                         placeholder="••••••••"
                         autoComplete="current-password"
                         aria-label="Password"
+                        className="border-slate-300 bg-white text-slate-950 placeholder:text-slate-500 focus-visible:border-[#e68445] focus-visible:ring-[#e68445]/25"
                         {...field}
                       />
                     </FormControl>

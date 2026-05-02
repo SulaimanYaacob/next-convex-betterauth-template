@@ -112,7 +112,7 @@
 | 1. Foundation | 4/4 | Complete | 2026-04-26 |
 | 2. Home + Presence | 4/4 | Complete | 2026-04-30 |
 | 3. Game Shell + Earn | 4/4 | Complete | 2026-05-02 |
-| 4. Cosmetics + Store + Profile | 0/? | Not started | - |
+| 4. Cosmetics + Store + Profile | 0/TBD | Context ready | - |
 | 5. Payments | 0/? | Not started | - |
 
 ---

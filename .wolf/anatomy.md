@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-02T00:54:07.925Z
-> Files: 177 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-02T03:33:02.802Z
+> Files: 180 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
@@ -121,8 +121,8 @@
 - `config.json` (~80 tok)
 - `PROJECT.md` — Gami (~1101 tok)
 - `REQUIREMENTS.md` — Requirements: Gami (~1697 tok)
-- `ROADMAP.md` — Roadmap: Gami (~2038 tok)
-- `STATE.md` — Project State: Gami (~910 tok)
+- `ROADMAP.md` — Roadmap: Gami (~2040 tok)
+- `STATE.md` — Project State: Gami (~896 tok)
 
 ## .planning/phases/01-foundation/
 
@@ -170,11 +170,18 @@
 - `03-03-PLAN.md` — updatePresence: pattern, FloatingPauseButton (~7266 tok)
 - `03-03-SUMMARY.md` — Phase 3 Plan 03: Game Shell Summary (~1471 tok)
 - `03-04-PLAN.md` — RewardScreenProps: RewardScreen, handleBackToHome (~4337 tok)
+- `03-04-SUMMARY.md` — Phase 3 Plan 04: RewardScreen Component Summary (~1017 tok)
 - `03-CONTEXT.md` — Phase 3: Game Shell + Earn - Context (~2213 tok)
 - `03-DISCUSSION-LOG.md` — Phase 3: Game Shell + Earn - Discussion Log (~1597 tok)
 - `03-PATTERNS.md` — Phase 3: Game Shell + Earn - Pattern Map (~6037 tok)
 - `03-RESEARCH.md` — Phase 3: Game Shell + Earn - Research (~10923 tok)
+- `03-UAT.md` — Current Test (~910 tok)
 - `03-UI-SPEC.md` — UI-SPEC: Phase 03 — Game Shell + Earn (~6088 tok)
+
+## .planning/phases/04-cosmetics-store-profile/
+
+- `04-CONTEXT.md` - Phase 4 context and decisions for cosmetics, store/profile, game modernization, and Signal Clash realtime direction (~1900 tok)
+- `04-UAT.md` - Partial Phase 4 implementation test notes and remaining authenticated verification gaps (~900 tok)
 
 ## .planning/research/
 
@@ -188,6 +195,7 @@
 
 - `auth.config.ts` (~60 tok)
 - `auth.ts` — Exports betterAuthComponent (~85 tok)
+- `authUsers.ts` - Shared Convex helpers for current app user, coin balance, equipped cosmetic slugs, player loadout, and display name (~520 tok)
 - `coinLedger.ts` — ECON-04: returns the real-time coin balance for the authenticated user. (~278 tok)
 - `convex.config.ts` — Declares app (~74 tok)
 - `crons.ts` — PRES-03: every 1 minute, mark presence rows with lastSeen > 5 min ago as "offline". (~284 tok)
@@ -199,6 +207,7 @@
 - `presence.ts` — PRES-01: heartbeat mutation. Phase 1 ships the table + mutation; (~666 tok)
 - `README.md` — Project documentation (~648 tok)
 - `schema.ts` (~941 tok)
+- `signalClash.ts` - Issues short-lived signed Signal Clash room tickets with user display name, avatar cosmetics, and equipped primary skill (~300 tok)
 - `tsconfig.json` — TypeScript configuration (~238 tok)
 - `users.ts` — Idempotent — anonymous-to-account conversion fires create.after twice (~766 tok)
 - `util.ts` — Exports requireEnv, vv (~94 tok)
@@ -256,7 +265,19 @@
 
 ## src/app/play/[slug]/
 
-- `page.tsx` — ALLOWED_ORIGINS (~2047 tok)
+- `page.tsx` — ALLOWED_ORIGINS (~1780 tok)
+
+## src/app/games/duel-dash/
+
+- `page.tsx` - Signal Clash React arena with waiting room, countdown, pointer movement, contact signal collection, hazards, recovery clicks, compact HUD, skills, and WebSocket/BroadcastChannel realtime transport (~2900 tok)
+
+## src/app/games/mind-maze/
+
+- `page.tsx` - Responsive memory route game with playback lock, platform lifecycle messages, pause handling, and no skill controls (~1800 tok)
+
+## src/app/games/pixel-rush/
+
+- `page.tsx` - Canvas arcade route game with pointer-follow movement, hazards, lives, rewards, avatar cosmetics, pause handling, and primary-skill activation (~3900 tok)
 
 ## src/app/store/
 
@@ -278,6 +299,22 @@
 - `mobile-bottom-nav.tsx` — TABS (~449 tok)
 - `mobile-nav.tsx` — MobileNav (~920 tok)
 - `presence-panel.tsx` — STATUS_COLORS (~719 tok)
+- `reward-screen.tsx` — RewardScreen (~754 tok)
+
+## src/components/cosmetics/
+
+- `cosmetic-card.tsx` - Shared cosmetic catalog/owned card with preview, rarity, owned/equipped state, and optional action slot (~650 tok)
+- `cosmetic-detail-panel.tsx` - Shared selected cosmetic preview/detail and buy/equip CTA panel (~600 tok)
+- `cosmetic-filter-tabs.tsx` - Shared cosmetic type filter tabs based on TYPE_ORDER (~220 tok)
+- `cosmetic-preview.tsx` - Store/profile preview component and equipped mini badges for cosmetic types (~1000 tok)
+- `cosmetic-states.tsx` - Shared cosmetics loading, empty, and auth-required states (~260 tok)
+- `equipped-slot-card.tsx` - Shared profile equipped-slot card with preview and unequip action (~430 tok)
+
+## src/components/games/
+
+- `game-hud.tsx` - Shared compact fixed game HUD stat grid (~230 tok)
+- `game-start-overlay.tsx` - Shared full-screen game start overlay with title, description, optional chips, and CTA (~430 tok)
+- `game-surface.tsx` - Shared fixed full-screen game surface with optional grid background (~220 tok)
 
 ## src/components/next-theme/
 
@@ -306,8 +343,26 @@
 
 - `auth-client.ts` — Exports authClient (~178 tok)
 - `auth.ts` — Exports createAuth, authWithoutCtx (~1937 tok)
+- `canvas-stage.ts` - Shared viewport canvas sizing and DPR/mobile detection helper (~180 tok)
+- `cosmetic-inventory.ts` - Shared frontend cosmetic inventory item/equipped types and readable mutation error mapping (~240 tok)
+- `cosmetics.ts` - Cosmetic metadata, slot labels, rarity classes, and player appearance helpers (~2100 tok)
+- `game-messages.ts` - Shared game lifecycle postMessage types/helpers and platform pause/resume guards (~230 tok)
+- `player-avatar.ts` - Canvas/player avatar rendering helpers for game routes (~540 tok)
+- `skills.ts` - Skill metadata helpers for equipped primary skills, game-mode support, and cooldown-ready calculations (~240 tok)
 - `utils.ts` — Exports cn (~50 tok)
+
+## src/hooks/
+
+- `use-platform-pause.ts` - Shared client hook for PLATFORM_PAUSE and PLATFORM_RESUME game messages (~180 tok)
 
 ## src/rules/
 
 - `convex_rules.mdc` — Exports f (~7315 tok)
+
+## workers/
+
+- `signal-clash-room.mjs` - Cloudflare Durable Object WebSocket room for Signal Clash live players, countdown, signal collection, hazards, downed recovery, skills, and signed-ticket validation (~1000 tok)
+
+## ./
+
+- `wrangler.signal-clash.toml` - Cloudflare Worker/Durable Object config for Signal Clash realtime room deployment (~80 tok)

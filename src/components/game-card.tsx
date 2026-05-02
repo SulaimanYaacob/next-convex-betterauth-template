@@ -7,16 +7,32 @@ interface GameCardProps {
   name: string;
   genre: string;
   slug: string;
+  description?: string;
   thumbnailUrl?: string;
+  skillSupport?: "none" | "singleplayer" | "multiplayer";
 }
 
-export function GameCard({ name, genre, slug, thumbnailUrl }: GameCardProps) {
+export function GameCard({
+  name,
+  genre,
+  slug,
+  description,
+  thumbnailUrl,
+  skillSupport = "none",
+}: GameCardProps) {
+  const skillLabel =
+    skillSupport === "none"
+      ? "No skills"
+      : skillSupport === "singleplayer"
+        ? "Solo skills"
+        : "Skills enabled";
+
   return (
     <Link
       href={`/play/${slug}`}
-      className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-xl"
+      className="block rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
     >
-      <Card className="rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200 gap-0 py-0">
+      <Card className="gap-0 overflow-hidden rounded-md py-0 shadow-sm transition-shadow duration-200 hover:shadow-md">
         <div className="aspect-video bg-muted relative overflow-hidden">
           {thumbnailUrl ? (
             <Image
@@ -32,9 +48,17 @@ export function GameCard({ name, genre, slug, thumbnailUrl }: GameCardProps) {
         </div>
         <div className="p-4 space-y-2">
           <p className="text-sm font-semibold text-foreground">{name}</p>
-          <Badge variant="outline" className="text-xs">
-            {genre}
-          </Badge>
+          <p className="line-clamp-2 min-h-10 text-sm leading-5 text-muted-foreground">
+            {description ?? "Fast, focused play with clear rewards."}
+          </p>
+          <div className="flex flex-wrap gap-2">
+            <Badge variant="outline" className="text-xs">
+              {genre}
+            </Badge>
+            <Badge variant="secondary" className="text-xs">
+              {skillLabel}
+            </Badge>
+          </div>
         </div>
       </Card>
     </Link>

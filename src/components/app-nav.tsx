@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Search } from "lucide-react";
+import { Search, ShoppingBag } from "lucide-react";
 import { toast } from "sonner";
 import { authClient } from "@/lib/auth-client";
 import { GamiLogo } from "@/components/gami-logo";
@@ -64,6 +64,14 @@ export function AppNav() {
 
         {/* Right cluster */}
         <div className="flex items-center gap-4 shrink-0">
+          <Link
+            href="/store"
+            className="inline-flex min-h-[44px] items-center gap-2 rounded-md px-3 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            <ShoppingBag className="size-4" aria-hidden="true" />
+            Store
+          </Link>
+
           {isAuthenticated && <CoinBalance />}
 
           <DropdownMenu>

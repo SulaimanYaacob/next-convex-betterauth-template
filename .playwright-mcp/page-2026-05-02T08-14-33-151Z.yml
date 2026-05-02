@@ -1,0 +1,27 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic "Mind Maze tiles" [ref=e4]:
+      - button "Tile 1" [disabled] [ref=e5]
+      - button "Tile 2" [disabled] [ref=e6]
+      - button "Tile 3" [disabled] [ref=e7]
+      - button "Tile 4" [disabled] [ref=e8]
+      - button "Tile 5" [disabled] [ref=e9]
+      - button "Tile 6" [disabled] [ref=e10]
+      - button "Tile 7" [disabled] [ref=e11]
+      - button "Tile 8" [disabled] [ref=e12]
+      - button "Tile 9" [disabled] [ref=e13]
+      - button "Tile 10" [disabled] [ref=e14]
+      - button "Tile 11" [disabled] [ref=e15]
+      - button "Tile 12" [disabled] [ref=e16]
+      - button "Tile 13" [disabled] [ref=e17]
+      - button "Tile 14" [disabled] [ref=e18]
+      - button "Tile 15" [disabled] [ref=e19]
+      - button "Tile 16" [disabled] [ref=e20]
+    - generic [ref=e22]:
+      - heading "Mind Maze" [level=1] [ref=e23]
+      - paragraph [ref=e24]: Memorize each glowing route and repeat it as the sequence grows.
+      - button "Start puzzle" [ref=e25]
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e31] [cursor=pointer]:
+    - img [ref=e32]
+  - alert [ref=e37]

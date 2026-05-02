@@ -1,0 +1,6 @@
+[     199ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[     224ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[     345ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[     455ms] [LOG] [Fast Refresh] done in 216ms @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[    1745ms] [WARNING] An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing. @ http://localhost:3000/games/pixel-rush:0
+[    1843ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925

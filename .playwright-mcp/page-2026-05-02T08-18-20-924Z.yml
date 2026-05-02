@@ -1,0 +1,40 @@
+- generic [active] [ref=e1]:
+  - navigation "Primary" [ref=e2]:
+    - generic [ref=e3]:
+      - link "Gami home" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e5]:
+          - img [ref=e6]
+          - generic [ref=e9]: gami
+      - generic [ref=e10]:
+        - img
+        - searchbox "Search games" [ref=e11]
+      - generic [ref=e12]:
+        - link "Store" [ref=e13] [cursor=pointer]:
+          - /url: /store
+          - img [ref=e14]
+          - text: Store
+        - button "Open profile menu" [ref=e17]:
+          - generic [ref=e19]: U
+  - main [ref=e20]:
+    - main [ref=e21]:
+      - generic [ref=e22]:
+        - generic [ref=e23]:
+          - generic [ref=e24]:
+            - generic [ref=e25]:
+              - heading "Store" [level=1] [ref=e26]
+              - paragraph [ref=e27]: Buy clean cosmetics with earned coins. Common items are tuned for a few good sessions.
+            - generic [ref=e28]: Coins
+          - generic [ref=e29]:
+            - button "All" [ref=e30]
+            - button "Cursor" [ref=e31]
+            - button "Trail" [ref=e32]
+            - button "Shape" [ref=e33]
+            - button "Player Color" [ref=e34]
+            - button "Player Effect" [ref=e35]
+            - button "Theme" [ref=e36]
+        - complementary [ref=e44]:
+          - paragraph [ref=e46]: Select a cosmetic to preview it.
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e52] [cursor=pointer]:
+    - img [ref=e53]

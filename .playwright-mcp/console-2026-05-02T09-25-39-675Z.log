@@ -1,0 +1,22 @@
+[     212ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[     241ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[    1482ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[    1495ms] [LOG] [Fast Refresh] done in 117ms @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[    1527ms] [WARNING] An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing. @ http://localhost:3000/games/duel-dash:0
+[    1623ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[   66283ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[   66286ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[   66290ms] [LOG] [Fast Refresh] done in 78ms @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[   66291ms] [LOG] [Fast Refresh] done in 81ms @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[   66440ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[   66441ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[   66494ms] [LOG] [Fast Refresh] done in 168ms @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[   66494ms] [LOG] [Fast Refresh] done in 168ms @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[  114514ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[  114514ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[  114603ms] [LOG] [Fast Refresh] done in 193ms @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[  114603ms] [LOG] [Fast Refresh] done in 193ms @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[  176982ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[  176982ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[  177008ms] [LOG] [Fast Refresh] done in 128ms @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925
+[  177008ms] [LOG] [Fast Refresh] done in 129ms @ http://localhost:3000/_next/static/chunks/0_t._next_dist_0.-mfgz._.js:2925

@@ -120,6 +120,7 @@ export default function SignUpPage() {
                         autoComplete="email"
                         autoFocus
                         aria-label="Email address"
+                        className="border-slate-300 bg-white text-slate-950 placeholder:text-slate-500 focus-visible:border-[#e68445] focus-visible:ring-[#e68445]/25"
                         {...field}
                       />
                     </FormControl>
@@ -139,6 +140,7 @@ export default function SignUpPage() {
                         placeholder="8+ characters"
                         autoComplete="new-password"
                         aria-label="Password"
+                        className="border-slate-300 bg-white text-slate-950 placeholder:text-slate-500 focus-visible:border-[#e68445] focus-visible:ring-[#e68445]/25"
                         {...field}
                       />
                     </FormControl>

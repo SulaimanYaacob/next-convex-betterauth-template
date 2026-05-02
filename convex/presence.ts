@@ -15,7 +15,12 @@ export const updatePresence = mutation({
     ),
   },
   handler: async (ctx, args) => {
-    const authUser = await betterAuthComponent.getAuthUser(ctx);
+    let authUser;
+    try {
+      authUser = await betterAuthComponent.getAuthUser(ctx);
+    } catch {
+      return;
+    }
     if (!authUser) return; // unauthenticated — silently no-op
 
     const appUser = await ctx.db
@@ -57,6 +62,16 @@ export const getOnlinePlayers = query({
     return Promise.all(
       active.map(async (r) => {
         const user = await ctx.db.get(r.userId);
+        const equippedRows = await ctx.db
+          .query("equippedItems")
+          .withIndex("by_userId", (q) => q.eq("userId", r.userId))
+          .take(10);
+        const cosmetics: Partial<Record<(typeof equippedRows)[number]["slot"], string>> =
+          {};
+        for (const equipped of equippedRows) {
+          const item = await ctx.db.get(equipped.itemId);
+          if (item) cosmetics[equipped.slot] = item.slug;
+        }
         const name =
           user?.username ?? user?.email?.split("@")[0] ?? "Player";
         const initials = name.slice(0, 2).toUpperCase();
@@ -65,6 +80,7 @@ export const getOnlinePlayers = query({
           name,
           initials,
           status: r.status as "online" | "in-game",
+          cosmetics,
         };
       }),
     );

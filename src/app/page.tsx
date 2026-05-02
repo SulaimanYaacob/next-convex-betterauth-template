@@ -49,7 +49,9 @@ export default function Home() {
                     name={g.name}
                     genre={g.genre}
                     slug={g.slug}
+                    description={g.description}
                     thumbnailUrl={g.thumbnailUrl}
+                    skillSupport={g.skillSupport}
                   />
                 ))}
           </div>
@@ -82,7 +84,9 @@ export default function Home() {
                     name={g.name}
                     genre={g.genre}
                     slug={g.slug}
+                    description={g.description}
                     thumbnailUrl={g.thumbnailUrl}
+                    skillSupport={g.skillSupport}
                   />
                 ))}
           </div>

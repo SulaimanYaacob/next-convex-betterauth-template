@@ -1,0 +1,28 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic "Pixel Rush game canvas" [ref=e3]
+    - generic:
+      - generic:
+        - generic: Score
+        - strong: "0"
+      - generic:
+        - generic: Combo
+        - strong: x1
+      - generic:
+        - generic: Lives
+        - strong: "3"
+      - generic:
+        - generic: Time
+        - strong: "60"
+    - generic [ref=e5]:
+      - heading "Pixel Rush" [level=1] [ref=e6]
+      - paragraph [ref=e7]: Collect bright cores, dodge sharp hazards, and survive the full run.
+      - generic [ref=e8]:
+        - generic [ref=e9]: mouse follows
+        - generic [ref=e10]: WASD / arrows
+        - generic [ref=e11]: 3 lives
+      - button "Start run" [ref=e12]
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e18] [cursor=pointer]:
+    - img [ref=e19]
+  - alert [ref=e24]

@@ -1,0 +1,26 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic:
+        - generic:
+          - paragraph: You
+          - paragraph: "0"
+        - generic:
+          - paragraph: Live
+          - paragraph: "60"
+        - generic:
+          - paragraph: Leader
+          - paragraph: "-"
+      - complementary:
+        - paragraph: Goal
+        - paragraph: Move to show your position, claim yellow signals, avoid red hazards, and watch rivals.
+        - generic:
+          - paragraph: No players in this round yet.
+      - generic [ref=e5]:
+        - heading "Signal Clash" [level=1] [ref=e6]
+        - paragraph [ref=e7]: Move through the shared arena, claim the yellow signal first, avoid red hazards, and race the live leaderboard.
+        - button "Join live round" [ref=e8]
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e14] [cursor=pointer]:
+    - img [ref=e15]
+  - alert [ref=e20]
